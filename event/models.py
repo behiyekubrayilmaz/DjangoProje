@@ -36,6 +36,7 @@ class Event(models.Model):
     keywords = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     image=models.ImageField(blank=True,upload_to='images/')
+    slug = models.SlugField(blank=True,max_length=150)
     status=models.CharField(max_length=10,choices=STATUS)
     detail=RichTextUploadingField()
     create_at = models.DateTimeField(auto_now_add=True)
