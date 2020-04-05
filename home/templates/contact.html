@@ -11,12 +11,31 @@
 
 {% block body %}
 
-<div class="row">
-    <div class="span12">
-        <div class="well well-small">
-            {{ setting.contact|safe }}
+    <div class="row">
+        <div class="span8">
+            <div class="well well-small">
+                {{ setting.contact|safe }}
+            </div>
+        </div>
+        <div class="span4">
+            <div class="well well-small">
+                <h4>Contact Form</h4>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form class="form-horizontal" action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="SEND MESSAGE">
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-    {% endblock %}
+{% endblock %}
