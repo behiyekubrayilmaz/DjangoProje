@@ -1,21 +1,29 @@
 {% load static %}
-<div class="span9">
-    <div class="well np">
-        <div id="myCarousel" class="carousel slide homCar">
-            <div class="carousel-inner">
 
-                {% for rs in sliderdata %}
-                <div class="item active">
-                    <a href="/event/{{ rs.id }}/{{ rs.slug }}" class=""> <img style="width:100%" src="{{ rs.image.url }}" alt="bootstrap ecommerce templates"></a>
-                    <div class="carousel-caption">
-                        <h4>{{ rs.title }}</h4>
-                        <p><span>{{ rs.description }}</span></p>
-                    </div>
+<section id="intro">
+  <div class="jumbotron masthead">
+
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="camera_wrap camera_black_skin" id="camera_wrap_2">
+            {% for rs in sliderdata %}
+
+            <div data-thumb="" data-src="{{ rs.image.url }}" style="height:194px; width:219px">
+              <div class="camera_caption fadeFromBottom">
+                <a href="/event/{{ rs.id }}/{{ rs.slug }}" class=""><h2>{{ rs.title }}</h2>
+                <div class="hidden-phone">
+                  <p>{{ rs.description }}</p></a>
                 </div>
-                {% endfor %}
-
+              </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            {% endfor %}
+
+          </div>
+          <!-- #camera_wrap_1 -->
+
         </div>
+      </div>
     </div>
+  </div>
+</section>

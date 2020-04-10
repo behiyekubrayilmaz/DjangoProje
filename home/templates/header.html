@@ -1,103 +1,96 @@
 {% load static %}
-<!--
-	Upper Header Section
--->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="topNav">
+<header>
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container">
-            <div class="alignR">
-                <div class="pull-left socialNw">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                    <a href="#"><span class="icon-facebook"></span></a>
-                    <a href="#"><span class="icon-youtube"></span></a>
-                    <a href="#"><span class="icon-tumblr"></span></a>
-                </div>
-                <a class="active" href="index.html"> <span class="icon-home"></span> Home</a>
-                <a href="#"><span class="icon-user"></span> My Account</a>
-                <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                <a href="contact.html"><span class="icon-envelope"></span> Contact </a>
-                <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
-            </div>
-        </div>
-    </div>
-</div>
+          <!-- logo -->
+          <a class="brand logo" href="index.html">
+            <img src="{% static 'assets/img/logo.png'%}" alt="" />
+          </a>
+          <!-- end logo -->
 
-<!--
-Lower Header Section
--->
-<div class="container">
-    <div id="gototop"> </div>
-    <header id="header">
-        <div class="row">
-            <div class="span4">
-                <h1>
-                    <a class="logo" href="index.html"><span>Twitter Bootstrap ecommerce template</span>
-                        <img src="{% static 'assets/img/logo-bootstrap-shoping-cart.png'%}" alt="bootstrap sexy shop">
-                    </a>
-                </h1>
-            </div>
-            <div class="span4">
-                <div class="offerNoteWrapper">
-                    <h1 class="dotmark">
-                        <i class="icon-cut"></i>
-                        Twitter Bootstrap shopping cart HTML template is available @ $14
-                    </h1>
-                </div>
-            </div>
-            <div class="span4 alignR">
-                <p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
-                <span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
-                <span class="btn btn-warning btn-mini">$</span>
-                <span class="btn btn-mini">&pound;</span>
-                <span class="btn btn-mini">&euro;</span>
-            </div>
+          <!-- top menu -->
+          <div>
+            <nav>
+              <ul class="nav topnav">
+                <li class="dropdown success ">
+                  <a href="index.html"><i class="icon-home icon-white"></i> Home</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="index_alt1.html">Index alt 1</a></li>
+                    <li><a href="index_alt2.html">Index alt 2</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown primary">
+                  <a href="#"><i class="icon-star icon-white"></i> Features</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="overview.html">Overview</a></li>
+                    <li><a href="scaffolding.html">Scaffolding</a></li>
+                    <li><a href="base-css.html">Base CSS</a></li>
+                    <li><a href="components.html">Components</a></li>
+                    <li><a href="javascript.html">Javascripts</a></li>
+                    <li class="dropdown"><a href="#">3rd level</a>
+                      <ul class="dropdown-menu sub-menu">
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                        <li><a href="#">Example menu</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown danger">
+                  <a href="#"><i class="icon-leaf icon-white"></i> Pages</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Our services</a></li>
+                    <li><a href="pricingtable.html">Pricing table</a></li>
+                    <li><a href="faq.html">F.A.Q</a></li>
+                    <li><a href="fullwidth.html">Fullwidth</a></li>
+                    <li><a href="404.html">404</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown warning">
+                  <a href="#"><i class="icon-camera icon-white"></i> Portfolio</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown"><a href="#">Portfolio type 1</a>
+                      <ul class="dropdown-menu sub-menu">
+                        <li><a href="portfolio-alt1-2cols.html">2 columns</a></li>
+                        <li><a href="portfolio-alt1-3cols.html">3 columns</a></li>
+                        <li><a href="portfolio-alt1-4cols.html">4 columns</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Portfolio type 2</a>
+                      <ul class="dropdown-menu sub-menu">
+                        <li><a href="portfolio-alt2-2cols.html">2 columns</a></li>
+                        <li><a href="portfolio-alt2-3cols.html">3 columns</a></li>
+                        <li><a href="portfolio-alt2-4cols.html">4 columns</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="portfolio-alt3.html">Portfolio type 3</a></li>
+                    <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown info">
+                  <a href="/aboutus"><i class="icon-bullhorn icon-white"></i> AboutUs</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog_left_sidebar.html">Blog left sidebar</a></li>
+                    <li><a href="blog_right_sidebar.html">Blog right sidebar</a></li>
+                    <li><a href="post_left_sidebar.html">Post left sidebar</a></li>
+                    <li><a href="post_right_sidebar.html">Post right sidebar</a></li>
+                  </ul>
+                </li>
+                <li class="inverse">
+                  <a href="/contact"><i class="icon-envelope icon-white"></i> Contact</a>
+                </li>
+                  <li class="inverse">
+                  <a href="/references"><i class="icon-envelope icon-white"></i> References</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- end menu -->
         </div>
-    </header>
-    <!--
-Navigation Bar Section
--->
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class=""><a href="/">Home	</a></li>
-                        <li class=""><a href="/aboutus">About Us</a></li>
-                        <li class=""><a href="list-view.html">List View</a></li>
-                        <li class=""><a href="grid-view.html">Grid View</a></li>
-                        <li class=""><a href="/contact">Contact</a></li>
-                        <li class=""><a href="/references">References</a></li>
-                    </ul>
-                    <form action="#" class="navbar-search pull-left">
-                        <input type="text" placeholder="Search" class="search-query span2">
-                    </form>
-                    <ul class="nav pull-right">
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
-                            <div class="dropdown-menu">
-                                <form class="form-horizontal loginFrm">
-                                    <div class="control-group">
-                                        <input type="text" class="span2" id="inputEmail" placeholder="Email">
-                                    </div>
-                                    <div class="control-group">
-                                        <input type="password" class="span2" id="inputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="checkbox">
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                        <button type="submit" class="shopBtn btn-block">Sign in</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </header>
