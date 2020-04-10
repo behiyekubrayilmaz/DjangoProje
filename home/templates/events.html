@@ -1,0 +1,43 @@
+{% extends "homebase.html" %}
+
+{% block title %} AboutUs {{ categorydata.title}} {% endblock %}
+{% block keywords %} {{ categorydata.keywords}} {% endblock %}
+{% block description %} {{ categorydata.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{categorydata.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
+          <li><a href="#global"><i class="icon-chevron-right"></i> Global styles</a></li>
+          <li><a href="#gridSystem"><i class="icon-chevron-right"></i> Grid system</a></li>
+          <li><a href="#fluidGridSystem"><i class="icon-chevron-right"></i> Fluid grid system</a></li>
+          <li><a href="#layouts"><i class="icon-chevron-right"></i> Layouts</a></li>
+          <li><a href="#responsive"><i class="icon-chevron-right"></i> Responsive design</a></li>
+        </ul>
+      </div>
+                <div class="span9">
+                    <aside>
+                        <div class="widget">
+                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>{{ categorydata.title }}&nbsp;&nbsp;Hakkımızda </h4>
+                            <strong></strong><br><br>
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {% endblock %}

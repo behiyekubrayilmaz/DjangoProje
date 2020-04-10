@@ -3,26 +3,34 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from event.models import Event
+from event.models import Event, Category
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata =Event.objects.all()[:4]
+    category=Category.objects.all()
     context = {'setting': setting,
+               'category':category,
                'page':'home',
                'sliderdata':sliderdata}
     return render(request, 'index.html', context)
 
 def aboutus(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'aboutus'}
+    category = Category.objects.all()
+    context = {'setting': setting,
+               'catego ry': category,
+               'page':'aboutus'}
     return render(request, 'aboutus.html', context)
 
 def references(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page':'references'}
+    category = Category.objects.all()
+    context = {'setting': setting,
+               'category': category,
+               'page':'references'}
     return render(request, 'references.html', context)
 
 def contact(request):
@@ -40,8 +48,20 @@ def contact(request):
             messages.success(request,"Mesajınız başarı ile gönderildi")
             return HttpResponseRedirect ('/contact')
 
+    category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
     form=ContactFormu()
-    context = {'setting': setting, 'form':form}
+    context = {'setting': setting,
+               'category': category,
+               'form':form}
     return render(request, 'contact.html', context)
 
+
+def category_events(request,id,slug):
+    events = Event.objects.filter(category_id=id)
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    context = {'events': events,
+               'category': category,
+               'categorydata':categorydata}
+    return render(request, 'events.html', context)
