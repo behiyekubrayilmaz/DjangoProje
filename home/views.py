@@ -11,7 +11,14 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata =Event.objects.all()[:4]
     category=Category.objects.all()
+    dayevents=Event.objects.all()[:4]
+    lastyevents = Event.objects.all().order_by('-id')[:4]
+    randomevents= Event.objects.all().order_by('?')[:4]
+
     context = {'setting': setting,
+               'dayevents': dayevents,
+               'lastyevents': lastyevents,
+               'randomevents': randomevents,
                'category':category,
                'page':'home',
                'sliderdata':sliderdata}
