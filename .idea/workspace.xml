@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/events_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/event_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ozel2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -113,7 +114,8 @@
       <workItem from="1585940463536" duration="16393000" />
       <workItem from="1586426866786" duration="6383000" />
       <workItem from="1586533738917" duration="24710000" />
-      <workItem from="1587121445694" duration="11677000" />
+      <workItem from="1587121445694" duration="12373000" />
+      <workItem from="1587147325777" duration="8456000" />
     </task>
     <task id="LOCAL-00001" summary="Header degisti">
       <created>1585398654308</created>
@@ -178,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587122028301</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added event comment and points">
+      <created>1587133168537</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587133168537</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added event comments and points">
+      <created>1587133229954</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587133229954</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,29 +210,31 @@
     <MESSAGE value="Kategori urunleri gösterme" />
     <MESSAGE value="Added event to homepage" />
     <MESSAGE value="Added event image gallery" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added event image gallery" />
+    <MESSAGE value="Added event comment and points" />
+    <MESSAGE value="Added event comments and points" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added event comments and points" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585398507277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585398507277" />
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1587133165498">
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1587156083338">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587133165498" />
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587156083338" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1585398824437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585398824437" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1587133174267">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1587133235395">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587133174267" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1587121447726">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587133235395" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1587147402547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587121447726" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587147402547" />
     <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586125475846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

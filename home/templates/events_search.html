@@ -1,0 +1,58 @@
+{% extends "homebase.html" %}
+
+{% block title %} Event Search Result {% endblock %}
+{% block keywords %} {{ categorydata.keywords}} {% endblock %}
+{% block description %} {{ categorydata.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{categorydata.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+
+                        <div class="widget">
+                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Events </h4>
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Event Name</th>
+                                    <th>Category</th>
+                                    <th>Detail</th>
+                                </tr>
+                                {% for rs in events %}
+                                    <tr>
+                                        <td><a href="/event/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="height: 50%"> </a></td>
+                                        <td><h6 class="event-name"><a href="/event/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6></td>
+                                        <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
+                                        <td>{{ rs.detail |safe }}</td>
+                                    </tr>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

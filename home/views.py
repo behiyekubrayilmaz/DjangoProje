@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from event.models import Event, Category, Images, Comment
+from home.forms import SearchForm
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
@@ -85,3 +86,15 @@ def event_detail(request,id,slug):
                'comments': comments,
                'images': images,}
     return render(request, 'event_detail.html', context)
+
+def event_search(request):
+    if request.method=='POST':
+        form=SearchForm(request.POST)
+        if form.is_valid():
+            query =form.cleaned_data['query']
+            category = Category.objects.all()
+            events = Event.objects.filter(title__icontains=query)
+            context = {'events': events,
+                       'category': category, }
+            return render(request, 'events_search.html', context)
+    return HttpResponseRedirect('/')

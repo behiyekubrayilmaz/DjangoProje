@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} AboutUs {{ categorydata.title}} {% endblock %}
+{% block title %} {{ categorydata.title}} {% endblock %}
 {% block keywords %} {{ categorydata.keywords}} {% endblock %}
 {% block description %} {{ categorydata.description}} {% endblock %}
 
@@ -11,6 +11,19 @@
 
 {% block body %}
 
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>{{categorydata.title}}</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="maincontent">
         <div class="container">
@@ -27,7 +40,7 @@
                 <div class="span9">
                     <aside>
                         <div class="widget">
-                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>{{ categorydata.title }}&nbsp;&nbsp;Hakkımızda </h4>
+                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>{{ categorydata.title }}&nbsp;&nbsp;Events </h4>
                             <strong></strong><br><br>
                             <ul>
 
