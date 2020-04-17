@@ -1,0 +1,137 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ events.title }} {% endblock %}
+{% block keywords %} {{ events.keywords}} {% endblock %}
+{% block description %} {{ events.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+
+     <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>{{setting.title}}</h3>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                                <ul class="social_small"><br>
+
+                                    <li class="facebook first"><a href="{{setting.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{setting.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <div id="myCarousel" class="carousel slide testimonials">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="testimonial">
+                                    <div data-thumb="{{ events.image.url }}" style="height: 360px" >
+                                        <img src="{{ events.image.url }}" style="height: 360px; width: 750px" alt=""/>
+                                        <blockquote>
+                                            <p>
+                                            <h2>{{events.title}}</h2>
+                                            </p>
+                                        </blockquote>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% for rs in images %}
+                                <div class="item">
+                                    <div class="testimonial">
+                                        <div data-thumb="{{ events.image.url }}" style="height: 360px" >
+                                            <img class="zoom" data-pretty="prettyPhoto" src="{{ rs.image.url }}" style="height: 360px; width: 750px" alt=""/>
+                                            </a>
+                                            <blockquote>
+                                                <p>
+                                                <h2>{{rs.title}}</h2>
+                                                </p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <div class="span2"></div>
+
+                <div class="span4">
+                    <h2>{{ events.title }}</h2>
+                    <div class="row">
+
+                        <div >
+                            <table class="table">
+                                <tbody>
+
+                                <tr>
+                                    <th>Detail   :</th>
+                                    <td>{{ events.detail |safe }} </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- divider -->
+            <div class="row">
+                <div class="span12">
+                    <div class="divider"></div>
+                </div>
+            </div>
+            <!-- end divider -->
+
+            <div class="row">
+                <div class="span12">
+                    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Announcement Detail</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Location</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Comments</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <p>{{ events.detail | safe}}</p>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+
+                            </div>
+                            <div class="tab-pane" id="tab3">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

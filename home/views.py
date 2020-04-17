@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from event.models import Event, Category
+from event.models import Event, Category, Images
 from home.models import Setting, ContactFormu, ContactFormMessage
 
 
@@ -72,3 +72,12 @@ def category_events(request,id,slug):
                'category': category,
                'categorydata':categorydata}
     return render(request, 'events.html', context)
+
+def event_detail(request,id,slug):
+    events = Event.objects.get(pk=id)
+    category = Category.objects.all()
+    images =Images.objects.filter(event_id=id)
+    context = {'events': events,
+               'category': category,
+               'images': images,}
+    return render(request, 'event_detail.html', context)
