@@ -3,7 +3,8 @@ from django.contrib import admin
 # Register your models here.
 from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 
-from event.models import Category, Event, Images
+from event.models import Category, Event, Images, Comment
+
 
 class EventImageInline(admin.TabularInline):
     model = Images
@@ -58,8 +59,12 @@ class CategoryAdmin2(DraggableMPTTAdmin):
         return instance.events_cumulative_count
     related_events_cumulative_count.short_description = 'Related events (in tree)'
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'comment', 'event', 'user', 'status']
+    list_filter = ['status']
 
 admin.site.register(Category,CategoryAdmin2)
 #admin.site.register(Event)
 admin.site.register(Event,EventAdmin)
 admin.site.register(Images,ImagesAdmin)
+admin.site.register(Comment,CommentAdmin)
