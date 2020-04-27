@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/templates/events_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/event_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/event_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ozel2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/aboutus.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/aboutus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/references.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/references.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ozel2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +114,9 @@
       <workItem from="1586426866786" duration="6383000" />
       <workItem from="1586533738917" duration="24710000" />
       <workItem from="1587121445694" duration="12373000" />
-      <workItem from="1587147325777" duration="8456000" />
+      <workItem from="1587147325777" duration="8901000" />
+      <workItem from="1587471831566" duration="3917000" />
+      <workItem from="1588022818075" duration="2411000" />
     </task>
     <task id="LOCAL-00001" summary="Header degisti">
       <created>1585398654308</created>
@@ -194,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587133229954</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added search button">
+      <created>1587156124671</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587156124671</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,33 +220,34 @@
     <MESSAGE value="Added event image gallery" />
     <MESSAGE value="Added event comment and points" />
     <MESSAGE value="Added event comments and points" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added event comments and points" />
+    <MESSAGE value="Added search button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585398507277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585398507277" />
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1587156083338">
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1587156121483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587156083338" />
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587156121483" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1585398824437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585398824437" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1587133235395">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1587156138169">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587133235395" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1587147402547">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587156138169" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1588023217240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587147402547" />
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586125475846">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588023217240" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588025376975">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1586125475846" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588025376975" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585398818534">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
