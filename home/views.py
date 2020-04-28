@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -98,3 +99,26 @@ def event_search(request):
                        'category': category, }
             return render(request, 'events_search.html', context)
     return HttpResponseRedirect('/')
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect('/')
+        else:
+            messages.error(request, "Lütfen kontrol ediniz")
+            return HttpResponseRedirect('/login')
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    context = {'category': category,
+               'setting': setting,}
+    return render(request, 'login.html', context)
+
