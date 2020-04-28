@@ -89,18 +89,20 @@
                             </li>
                             {% if user.id is not None %}
                                 <li class="dropdown danger">
-                                <a href="#"><i class="icon-leaf icon-white"></i> {{ user.first_name }}</a>
-                            {% else %}
+                                    <a href="#"><i class="icon-leaf icon-white"></i> {{ user.first_name }}</a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="services.html">My Activity</a></li>
+                                        <li><a href="pricingtable.html">My Comment</a></li>
+                                        <li><a href="faq.html">F.A.Q</a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                    </ul>
+                                    {% else %}
                                 <li class="dropdown danger">
                                 <a href="/login"><i class="icon-leaf icon-white"></i> Login</a>
                             {% endif %}
-                            <ul class="dropdown-menu">
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="services.html">My Activity</a></li>
-                                <li><a href="pricingtable.html">My Comment</a></li>
-                                <li><a href="faq.html">F.A.Q</a></li>
-                                <li><a href="/logout">Logout</a></li>
-                            </ul>
+
                             </li>
 
                         </ul>

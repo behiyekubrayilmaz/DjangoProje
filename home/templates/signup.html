@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} Login {{ setting.company}} {% endblock %}
+{% block title %} Sign Up {{ setting.company}} {% endblock %}
 {% block keywords %} {{ setting.keywords}} {% endblock %}
 {% block description %} {{ setting.description}} {% endblock %}
 
@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span8">
-                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>LOGIN</h3>
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>Sign UP</h3>
                     </div>
                     <div class="span4">
                         <div class="input-append">
@@ -38,12 +38,12 @@
     <section id="maincontent">
         <div class="container">
             <div class="row">
-            <div class="span4"></div>
+                <div class="span4"></div>
 
                 <div class="span6">
 
                     <div class="spacer30"></div>
-                    <h4 class="heading-success"><span class="btn btn-small btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Login </h4>
+                    <h4 class="heading-success"><span class="btn btn-small btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Sig Up FORM </h4>
 
 
                     <div id="sendmessage">Your message has been sent. Thank you!</div>
@@ -55,32 +55,23 @@
                             </div>
                         {% endfor %}
                     {% endif %}
-                    <form name="messages" method="post" role="form" class="contactForm">
+
+                    <form method="post">
                         {% csrf_token %}
-                        <div class="row">
-                            <div class="span6 form-group">
-                                <div class="span4 form-group">
-                                    <input type="text" name="username" class="input-block-level" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="span4 form-group">
-                                    <input type="password" class="input-block-level" name="password" id="email" placeholder="Password" data-rule="email" data-msg="Please enter a valid email">
-                                    <div class="validation"></div>
-                                </div>
-                                <div class="span4 form-group">
-                                    <input type="submit" value="LOGIN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                                    <a href="/signup">Create Sign Up</a>
-                                </div>
-                                <div class="span4 form-group">
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        {% for field in form %}
+                            <p>
+                                {{ field.label_tag }}<br>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small style="color:grey">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                {% endfor %}
+                            </p>
+                        {% endfor %}
+                    <button type="submit">Sign Up</button>
                     </form>
-
                 </div>
             </div>
         </div>

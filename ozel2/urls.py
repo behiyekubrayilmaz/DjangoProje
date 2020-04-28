@@ -34,6 +34,7 @@ urlpatterns = [
     path('search/', views.event_search, name='event_search'),
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', views.login_view, name='login_view'),
+    path('signup/', views.signup_view, name='signup_view'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #adminde resimin görünmesini sağlar
