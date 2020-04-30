@@ -22,13 +22,14 @@ from home import views
 
 urlpatterns = [
     path('', include('home.urls')),
+    path('event/', include('event.urls')),
+    path('home/', include('home.urls')),
+    path('user/', include('user.urls')),
+    path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('aboutus', views.aboutus, name='aboutus'),
     path('references', views.references, name='references'),
     path('contact', views.contact, name='contact'),
-    path('event/', include('event.urls')),
-    path('home/', include('home.urls')),
-    path('admin/', admin.site.urls),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_events, name='category_events'),
     path('event/<int:id>/<slug:slug>/', views.event_detail, name='event_detail'),
     path('search/', views.event_search, name='event_search'),
