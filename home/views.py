@@ -88,6 +88,12 @@ def event_detail(request,id,slug):
                'images': images,}
     return render(request, 'event_detail.html', context)
 
+def content_detail(request,id,slug):
+    category = Category.objects.all()
+    events = Event.objects.filter(category_id=id)
+    link='/event/'+str(events[0].id)+'/'+events[0].slug
+    return HttpResponseRedirect(link)
+
 def event_search(request):
     if request.method=='POST':
         form=SearchForm(request.POST)
