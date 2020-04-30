@@ -11,8 +11,9 @@ def index(request):
     category = Category.objects.all()
     current_user = request.user
     profile = UserProfile.objects.get(pk=current_user.id)
+    #return HttpResponse(profile)
     context = {'category': category,
                'setting': setting,
                'profile': profile,
-                }
-    return render(request,"user_profile.html",context)
+               }
+    return render(request, "user_profile.html",context)

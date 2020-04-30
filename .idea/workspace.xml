@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/user/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +118,7 @@
       <workItem from="1587121445694" duration="12373000" />
       <workItem from="1587147325777" duration="8901000" />
       <workItem from="1587471831566" duration="3917000" />
-      <workItem from="1588022818075" duration="24959000" />
+      <workItem from="1588022818075" duration="28670000" />
     </task>
     <task id="LOCAL-00001" summary="Header degisti">
       <created>1585398654308</created>
@@ -238,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588261521450</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added user panel">
+      <created>1588262111700</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588262111700</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,44 +284,41 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585398507277" />
-    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588257223076">
+    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588267144928">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1588257223076" />
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1588261520188">
+    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1588267144928" />
+    <state x="677" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588263106387">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588261520188" />
+    <state x="677" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588263106387" />
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1588262110114">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588262110114" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1585398824437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585398824437" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588261533199">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588262134364">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588261533199" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588262134364" />
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1588023217240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588023217240" />
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588262097880">
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588267325419">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588262097880" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588267325419" />
+    <state x="592" y="0" width="710" height="728" key="find.popup" timestamp="1588263159674">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="592" y="0" width="710" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1588263159674" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585398818534">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585398818534" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ozel2/urls.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
