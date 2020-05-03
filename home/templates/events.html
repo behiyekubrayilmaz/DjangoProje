@@ -28,29 +28,53 @@
     <section id="maincontent">
         <div class="container">
             <div class="row">
-                <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav affix-top">
-          <li><a href="#global"><i class="icon-chevron-right"></i> Global styles</a></li>
-          <li><a href="#gridSystem"><i class="icon-chevron-right"></i> Grid system</a></li>
-          <li><a href="#fluidGridSystem"><i class="icon-chevron-right"></i> Fluid grid system</a></li>
-          <li><a href="#layouts"><i class="icon-chevron-right"></i> Layouts</a></li>
-          <li><a href="#responsive"><i class="icon-chevron-right"></i> Responsive design</a></li>
-        </ul>
-      </div>
+                <ul class="breadcrumb">
+                    <li><a href="/">HOME </a></li>
+                    <li class="active"> / {{ categorydata.title }}</li>
+                </ul>
+                <div class="span3">
+                    <ul class="nav nav-list ">
+                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</a> </li>
+                        {% load mptt_tags %}
+                        {% recursetree category %}
+                            <li class="dropdown">
+                                <a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+                                {% if not node.is_leaf_node %}
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">{{ children }}</a></li>
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endrecursetree %}
+                    </ul>
+                </div>
                 <div class="span9">
-                    <aside>
-                        <div class="widget">
-                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>{{ categorydata.title }}&nbsp;&nbsp;Events </h4>
-                            <strong></strong><br><br>
-                            <ul>
+                    {% for rs in events %}
+                        <!-- start article 1 -->
+                        <article class="blog-post">
+                            <div class="tooltip-demo headline">
+                                <h4>{{ rs.title }}</h4>
+                            </div>
+                            <div class="row">
+                                <div class="span3">
+                                    <a href="#"><img src="{{ rs.image.url }}" alt=""></a>
+                                </div>
+                                <div class="span6">
+                                    <div class="clearfix"></div>
+                                    <p>
+                                        {{ rs.detail|safe }}
 
-                            </ul>
-                        </div>
-                    </aside>
+                                        <span class="comment"><a href="/event/{{ rs.id }}/{{ rs.slug }}" rel="tooltip" data-placement="top" >Daha Fazlası</a></span>
+                                    </p>
+                                    </div>
+                            </div>
+                        </article>
+                        <!-- end article 1 -->
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
 
 
-    {% endblock %}
+{% endblock %}

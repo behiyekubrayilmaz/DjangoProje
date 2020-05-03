@@ -15,7 +15,7 @@ def index(request):
     category=Category.objects.all()
     dayevents=Event.objects.all()[:4]
     lastyevents = Event.objects.all().order_by('-id')[:4]
-    randomevents= Event.objects.all().order_by('?')[:4]
+    randomevents= Event.objects.all().order_by('?')[:3]
 
     context = {'setting': setting,
                'dayevents': dayevents,

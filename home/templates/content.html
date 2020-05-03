@@ -4,29 +4,14 @@
 
 <section id="maincontent">
     <div class="container">
-
-        <!-- divider -->
         <div class="row">
-            <div class="span12">
-                <div class="divider"></div>
-            </div>
-        </div>
-        <!-- end divider -->
-        <div class="row">
-            <div class="span12">
-                <h3><a class="btn btn-large btn-success" href="#"><i class="m-icon-big-swapdown m-icon-white"></i></a> Recent works</h3>
-                {% for rs in dayevents %}
-                    <div class="span3">
-                        <div class="well ">
-                            <img src="{{ rs.image.url }}" alt="" />
-                            <h3>{{ rs.title }}</h3>
-                            <p>
-                                {{ rs.detail|safe }}</p>
-                            <a href="/event/{{ rs.id }}/{{ rs.slug }}" class="">Read more</a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+            {% for rs in randomevents %}
+                <div class="span4">
+                    <h5 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapright m-icon-white"></i></span>{{ rs.title }}</h5>
+                    <p>{{ rs.detail|safe }}</p>
+                    <a href="/event/{{ rs.id }}/{{ rs.slug }}" class="">Daha fazla...</a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -46,7 +31,7 @@
 
         <div class="row">
             <div class="span12">
-                <h3><a class="btn btn-large btn-success" href="#"><i class="m-icon-big-swapdown m-icon-white"></i></a> Recent works</h3>
+                <h3><a class="btn btn-large btn-success" href="#"><i class="m-icon-big-swapdown m-icon-white"></i></a> Minik Hayvanlarımız</h3>
 
                 <div class="carousel btleft">
                     <div class="carousel-wrapper">
@@ -55,9 +40,8 @@
                             {% for rs in dayevents %}
                                 <li style="margin-right: 30px; width: 270px;">
                                     <div class="tooltip-demo thumbnail">
-
                                         <a href="/event/{{ rs.id }}/{{ rs.slug }}" data-original-title="New House"><img src="{{ rs.image.url }}" alt="" style="height: 250px; width: 270px;"/></a>
-                                       <span> <h5>{{rs.title}}</h5></span>
+                                        <span> <h5>{{rs.title}}</h5></span>
                                     </div>
 
                                 </li>

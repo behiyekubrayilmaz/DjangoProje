@@ -90,7 +90,6 @@
                                 <tbody>
 
                                 <tr>
-                                    <th>Detail   :</th>
                                     <td>{{ events.detail |safe }} </td>
                                 </tr>
 
@@ -114,18 +113,15 @@
                 <div class="span12">
                     <div class="tabbable"> <!-- Only required for left/right tabs -->
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Announcement Detail</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Location</a></li>
-                            <li><a href="#tab3" data-toggle="tab">Comments</a></li>
+                            <li ><a href="#tab1" data-toggle="tab">Announcement Detail</a></li>
+                            <li class="active"><a href="#tab3" data-toggle="tab">Comments</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
+                            <div class="tab-pane " id="tab1">
                                 <p>{{ events.detail | safe}}</p>
                             </div>
-                            <div class="tab-pane" id="tab2">
 
-                            </div>
-                            <div class="tab-pane" id="tab3">
+                            <div class="tab-pane active" id="tab3">
                                 {% for rs in comments%}
                                     <ul class="media-list">
                                         <li class="media">
