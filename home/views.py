@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -146,3 +147,4 @@ def signup_view(request):
             'setting': setting,
             'form':form,}
     return render(request, 'signup.html', context)
+

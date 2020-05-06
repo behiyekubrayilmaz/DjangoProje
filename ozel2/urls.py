@@ -25,6 +25,7 @@ urlpatterns = [
     path('event/', include('event.urls')),
     path('home/', include('home.urls')),
     path('user/', include('user.urls')),
+    path('order/', include('order.urls')),
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('aboutus', views.aboutus, name='aboutus'),

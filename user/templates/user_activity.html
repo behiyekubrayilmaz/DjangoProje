@@ -1,0 +1,94 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{profile.user.first_name}} {{ setting.company}} {% endblock %}
+{% block keywords %} {{ setting.keywords}} {% endblock %}
+{% block description %} {{ setting.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>USER Profile</h3>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search" action="/search/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="query" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">All Categories</button>
+                                <ul class="social_small"><br>
+
+                                    <li class="facebook first"><a href="{{setting.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{setting.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                {% include "user_panel.html" %}
+
+                <div class="span9">
+
+                    <div class="spacer30"></div>
+                    <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i></h4>
+                    <form action="/user/addtoactivity/{{ user.id }}" method="post">
+                        {% csrf_token %}
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text"></th>
+                                <th class="text">Name-Surname</th>
+                                <th class="text">E-mail</th>
+                                <th class="text">Phone</th>
+                                <th class="text">Address</th>
+                                <th class="text">City</th>
+                                <th class="text">Country</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><img src="{{ profile.image.url }}" style="height: 50%"></td>
+                                <td class="text">{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
+                                <td class="text">{{ profile.user.email }}</td>
+                                <td class="text">{{ profile.phone }}</td>
+                                <td class="text">{{ profile.address }}</td>
+                                <td class="text">{{ profile.city }}</td>
+                                <td class="text">{{ profile.country }}</td>
+                                <td>
+                                    <form action="/order/addtoactivity/{{ user.id }}" method="post">
+                                        {% csrf_token %}
+                                        <button class="btn btn-medium btn-success" type="submit">ADD Activity </button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
