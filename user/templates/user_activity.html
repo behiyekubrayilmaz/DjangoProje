@@ -51,41 +51,50 @@
 
                     <div class="spacer30"></div>
                     <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i></h4>
-                    <form action="/user/addtoactivity/{{ user.id }}" method="post">
+                    <form action="/user/addtoactivity/" method="post">
                         {% csrf_token %}
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th class="text"></th>
-                                <th class="text">Name-Surname</th>
-                                <th class="text">E-mail</th>
-                                <th class="text">Phone</th>
-                                <th class="text">Address</th>
-                                <th class="text">City</th>
-                                <th class="text">Country</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><img src="{{ profile.image.url }}" style="height: 50%"></td>
-                                <td class="text">{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
-                                <td class="text">{{ profile.user.email }}</td>
-                                <td class="text">{{ profile.phone }}</td>
-                                <td class="text">{{ profile.address }}</td>
-                                <td class="text">{{ profile.city }}</td>
-                                <td class="text">{{ profile.country }}</td>
-                                <td>
-                                    <form action="/order/addtoactivity/{{ user.id }}" method="post">
-                                        {% csrf_token %}
-                                        <button class="btn btn-medium btn-success" type="submit">ADD Activity </button>
-                                    </form>
-                                </td>
+                        <div class="row">
 
-                            </tr>
-                            </tbody>
+                            <div class="span7">
+                                <div class="divider"></div>
+                            </div>
+                            <div class="span7 form-group">
+                                <input type="text" class="input-block-level" id="title" name="title" placeholder="Title" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="span7 form-group">
+                                <input type="text" class="input-block-level" id="name" name="name" placeholder="Name" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                        <div class="span7 form-group">
+                                <input type="text" class="input-block-level" id="surname" name="surname" placeholder="SurName" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="span7 form-group">
+                                <input type="file" id="id_image_tag" name="image_tag" placeholder="Image" >
+                                <div class="validation"></div>
+                            </div>
+                            <div class="span7 form-group">
+                                <input type="hidden" id="id_status" name="status" value="New">
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="span7 form-group">
+                                <textarea class="input-block-level" id="id_detail" name="detail" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Detail"></textarea>
+                                <div class="validation"></div>
+
+                                <div style="text-align: center;">
+                                    <input type="hidden" name="token" value="5" />
+
+                                        <button class="btn btn-medium btn-success" type="submit">Send Comment </button>
+
+                                </div>
+                            </div>
+                        </div>
+                        </tr>
+                        </tbody>
                         </table>
                     </form>
-
                 </div>
             </div>
         </div>

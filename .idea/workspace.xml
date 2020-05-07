@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/order/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_activity.html" afterDir="false" />
+    <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="User Edit and updated">
+      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ozel2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ozel2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/event/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
@@ -78,8 +70,8 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Django\ozel2\user\templates" />
-      <recent name="C:\Django\ozel2\order" />
       <recent name="C:\Django\ozel2\user" />
+      <recent name="C:\Django\ozel2\order" />
       <recent name="C:\Django\ozel2\home\templates" />
       <recent name="C:\Django\ozel2\event" />
     </key>
@@ -133,7 +125,7 @@
       <workItem from="1587471831566" duration="3917000" />
       <workItem from="1588022818075" duration="34809000" />
       <workItem from="1588517907008" duration="9696000" />
-      <workItem from="1588776248757" duration="14808000" />
+      <workItem from="1588776248757" duration="27309000" />
     </task>
     <task id="LOCAL-00001" summary="Header degisti">
       <created>1585398654308</created>
@@ -296,7 +288,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588536592424</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="User Edit and updated">
+      <created>1588796320394</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1588796320394</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,41 +322,42 @@
     <MESSAGE value="Added menu" />
     <MESSAGE value="Düzenleme yapıldı, etkinlik eklendi" />
     <MESSAGE value="changed Readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Readme" />
+    <MESSAGE value="User Edit and updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="User Edit and updated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585398507277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585398507277" />
-    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588267144928">
+    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588807219427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1588267144928" />
+    <state x="778" y="177" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1588807219427" />
     <state x="677" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588263106387">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="677" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588263106387" />
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1588536599281">
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1588809615804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588536599281" />
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588809615804" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1585398824437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585398824437" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588536613205">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588796339064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588536613205" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588796339064" />
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1588776250803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588776250803" />
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588796253207">
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588809618418">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588796253207" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588809618418" />
     <state x="592" y="0" width="710" height="728" key="find.popup" timestamp="1588263159674">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -366,5 +366,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585398818534" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user/urls.py</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
