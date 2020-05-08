@@ -12,16 +12,15 @@ from django.utils.safestring import mark_safe
 
 class AddActivity(models.Model):
     STATUS = (
-        ('New', 'New'),
-        ('Read', 'Read'),
-        ('Closed', 'Closed'),
+        ('New', 'Yeni'),
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
     image=models.ImageField(blank=True,upload_to='images/')
-    slug = models.SlugField(null=False, unique=True)
     detail = RichTextUploadingField()
     status=models.CharField(max_length=10,choices=STATUS,default='New')
     create_at = models.DateTimeField(auto_now_add=True)

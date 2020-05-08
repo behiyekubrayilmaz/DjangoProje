@@ -46,25 +46,24 @@ def user_update(request):
         return render(request, 'user_update.html', context)
 
 @login_required(login_url='/login') #Check login
-def addtoactivity (request):
+def addtoactivity (request,id):
     url = request.META.get('HTTP_REFERER')
     if request.method=='POST':
         form=AddActivityForm(request.POST)
         if form.is_valid():
             current_user=request.user
             data=AddActivity()
-            data.user_id=current_user.id
+            data.user_id=id
             data.title = form.cleaned_data['title']
             data.name=form.cleaned_data['name']
             data.surname = form.cleaned_data['surname']
             data.image = form.cleaned_data['image']
-            data.status = form.cleaned_data['status']
             data.detail = form.cleaned_data['detail']
             data.save()
-            messages.success(request,"Yorumunuz basarılı bir şekilde gönderildi. Teşekkür ederiz.")
+            messages.success(request,'Etkiliğiniz eklendi. Teşekkür ederiz.')
             return HttpResponseRedirect(url)
 
-    messages.warning(request, "Yorumunuz kaydedilmedi. Lütfen kontrol edip tekrar deneyiniz.")
+    messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.')
     return HttpResponseRedirect(url)
 
 
@@ -72,9 +71,11 @@ def activity(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
+    addtoactivity= AddActivity.objects.filter(user_id=current_user.id, status='True')  # eklenen etkinliklerin gösterilmesi
     # return HttpResponse(profile)
     context = {'category': category,
                'setting': setting,
+               'addtoactivity': addtoactivity,
                }
     return render(request, 'user_activity.html', context)
 

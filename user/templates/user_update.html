@@ -48,6 +48,11 @@
                 {% include "user_panel.html" %}
 
                 <div class="span9">
+                     {% if messages %}
+                        {% for message in messages %}
+                            {{ message|safe }}
+                        {% endfor %}
+                    {% endif %}
 
                     <div class="spacer30"></div>
                     <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i></h4>
