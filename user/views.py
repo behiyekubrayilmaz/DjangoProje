@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from event.models import Category
+from event.models import Category, Comment
 from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
 from user.models import AddActivityForm, AddActivity
@@ -96,3 +96,21 @@ def change_password(request):
         return render(request, 'change_password.html',{
             'form':form,'category': category})
 
+@login_required(login_url='/login') #Check login
+def comments(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    current_user = request.user
+    comments= Comment.objects.filter(user_id=current_user.id)
+    context = {'category': category,
+               'setting': setting,
+               'comments': comments,
+               }
+    return render(request, 'user_comments.html', context)
+
+@login_required(login_url='/login') #Check login
+def deletecomment(request,id):
+    current_user = request.user
+    Comment.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.error(request, 'Comment deleted..')
+    return HttpResponseRedirect('/user/comments')

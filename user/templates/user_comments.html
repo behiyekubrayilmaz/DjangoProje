@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} {{profile.user.first_name}} {{ setting.company}} {% endblock %}
+{% block title %} {{profile.user.first_name}} Comment Page {% endblock %}
 {% block keywords %} {{ setting.keywords}} {% endblock %}
 {% block description %} {{ setting.description}} {% endblock %}
 
@@ -45,33 +45,51 @@
     <section id="maincontent">
         <div class="container">
             <div class="row">
+            <ul class="breadcrumb">
+                        <li><a href="/">HOME </a></li>
+                        <li class="active"> / Comment</li>
+                    </ul>
                 {% include "user_panel.html" %}
 
                 <div class="span9">
+                 {% if messages %}
+                        {% for message in messages %}
+                            {{ message|safe }}
+                        {% endfor %}
+                    {% endif %}
 
                     <div class="spacer30"></div>
                     <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i></h4>
                     <table class="table">
-
-                        <tbody>
+                        <thead>
                         <tr>
-                            <td><img src="{{ user.userprofile.image.url }}" style="height: 50%"></td>
+
+                            <th class="text">Title</th>
+                            <th class="text">Rate</th>
+                            <th class="text">Subject</th>
+                            <th class="text">Status</th>
+                            <th class="text">Created At</th>
+                            <th class="text">Actions</th>
                         </tr>
+                        </thead>
+                        <tbody>
+                        {% for rs in comments %}
+                            <tr>
+                                <td class="text">
+                                    <a href="/event/{{ rs.event.id }}/{{ rs.event.slug }}">
+                                        {{ rs.event.title }}
+                                    </a>
+                                </td>
+                                <td class="text">{{ rs.rate }}<i class="icon-star-empty"></i> </td>
+                                <td class="text">{{ rs.subject }}</td>
+                                <td class="text">{{ rs.status }}</td>
+                                <td class="text">{{ rs.create_at }}</td>
+                                <td class="text"><a href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
+
+                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
-                    <div style="text-align: center;">
-
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                        <fieldset class="form-horizontal">
-                            {{ user_form.as_p }}
-                            {{ profile_form.as_p }}
-                        </fieldset>
-                            <div class="form-horizontal">
-                                <button class="btn btn-orange" type="submit">Update</button>
-                            </div>
-                        </form>
-                    </div>
 
                 </div>
             </div>
