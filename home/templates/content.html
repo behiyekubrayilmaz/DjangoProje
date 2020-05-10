@@ -5,11 +5,11 @@
 <section id="maincontent">
     <div class="container">
         <div class="row">
-            {% for rs in randomevents %}
+            {% for rs in announcements %}
                 <div class="span4">
                     <h5 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapright m-icon-white"></i></span>{{ rs.title }}</h5>
                     <p>{{ rs.detail|safe }}</p>
-                    <a href="/event/{{ rs.id }}/{{ rs.slug }}" class="">Daha fazla...</a>
+                    <a href="/content/{{ rs.id }}/{{ rs.slug }}" class="">Daha fazla...</a>
                 </div>
             {% endfor %}
         </div>

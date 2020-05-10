@@ -7,7 +7,7 @@
             <div class="container">
                 <!-- logo -->
                 <a class="brand logo" href="index.html">
-                   <!--  <img src="{% static 'assets/img/logo.png'%}" alt="" />-->
+                    <!--  <img src="{% static 'assets/img/logo.png'%}" alt="" />-->
                 </a>
                 <!-- end logo -->
 
@@ -17,17 +17,19 @@
                             <li class="dropdown success ">
                                 <a href="/"><i class="icon-home icon-white"></i> Home</a>
                             </li>
-                            {% load mptt_tags %}
-                            {% recursetree category %}
+                            {% if menu %}
+                                {% load mptt_tags %}
+                                {% recursetree menu %}
                                 <li class="dropdown">
-                                    <a href="/content/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+                                    <a href="/menu/{{ node.id }}">{{ node.title }}</a>
                                     {% if not node.is_leaf_node %}
                                         <ul class="dropdown-menu">
                                             <li ><a href="">{{ children }}</a></li>
                                         </ul>
                                     {% endif %}
                                 </li>
-                            {% endrecursetree %}
+                                {% endrecursetree %}
+                            {% endif %}
 
 
                             <li class="dropdown info">

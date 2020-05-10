@@ -26,14 +26,20 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('user/', include('user.urls')),
     path('order/', include('order.urls')),
+    path('content/', include('content.urls')),
     path('admin/', admin.site.urls),
+
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('aboutus', views.aboutus, name='aboutus'),
     path('references', views.references, name='references'),
     path('contact', views.contact, name='contact'),
+    path('error', views.error, name='error'),
+
     path('category/<int:id>/<slug:slug>/', views.category_events, name='category_events'),
     path('event/<int:id>/<slug:slug>/', views.event_detail, name='event_detail'),
-    path('content/<int:id>/<slug:slug>/', views.content_detail, name='content_detail'),
+    path('content/<int:id>/<slug:slug>/', views.contentdetail, name='contentdetail'),
+    path('menu/<int:id>', views.menu, name='menu'),
+
     path('search/', views.event_search, name='event_search'),
     path('logout/', views.logout_view, name='logout_view'),
     path('login/', views.login_view, name='login_view'),

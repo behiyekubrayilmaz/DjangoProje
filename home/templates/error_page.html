@@ -1,0 +1,64 @@
+{% extends "homebase.html" %}
+
+{% block title %} References {{ setting.company}} {% endblock %}
+{% block keywords %} {{ setting.keywords}} {% endblock %}
+{% block description %} {{ setting.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+     <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>{{ setting.title }}</h3>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search" action="/search/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="query" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">All Categories</button>
+                                <ul class="social_small"><br>
+
+                                    <li class="facebook first"><a href="{{setting.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{setting.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <aside>
+                        <div class="widget">
+                           <strong></strong><br><br>
+                            <div align="center">
+                                <br><br>
+                                <h1>ARADIĞINIZ İÇERİK BULUNAMADI...</h1>
+                                <h3><a href="/"><i class="icon-backward"></i>Anasayfa </a> </h3>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}

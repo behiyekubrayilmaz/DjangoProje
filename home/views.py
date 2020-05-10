@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from content.models import Content, Menu, CImages
 from event.models import Event, Category, Images, Comment
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage
@@ -14,15 +15,17 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata =Event.objects.all()[:4]
     category=Category.objects.all()
+    menu = Menu.objects.all()
     dayevents=Event.objects.all()[:4]
-    lastyevents = Event.objects.all().order_by('-id')[:4]
-    randomevents= Event.objects.all().order_by('?')[:3]
+    news = Content.objects.filter(type='haber').order_by('-id')[:4]
+    announcements= Content.objects.filter(type='duyuru').order_by('-id')[:3]
 
     context = {'setting': setting,
                'dayevents': dayevents,
-               'lastyevents': lastyevents,
-               'randomevents': randomevents,
-               'category':category,
+               'news': news,
+               'announcements': announcements,
+               'menu':menu,
+               'category': category,
                'page':'home',
                'sliderdata':sliderdata}
     return render(request, 'index.html', context)
@@ -89,11 +92,6 @@ def event_detail(request,id,slug):
                'images': images,}
     return render(request, 'event_detail.html', context)
 
-def content_detail(request,id,slug):
-    category = Category.objects.all()
-    events = Event.objects.filter(category_id=id)
-    link='/event/'+str(events[0].id)+'/'+events[0].slug
-    return HttpResponseRedirect(link)
 
 def event_search(request):
     if request.method=='POST':
@@ -148,3 +146,40 @@ def signup_view(request):
             'form':form,}
     return render(request, 'signup.html', context)
 
+
+def menu(request,id):
+    try:
+        content = Content.objects.get(menu_id=id)
+        link = '/content/'+str(content.id)+'/menu'
+        return HttpResponseRedirect(link)
+    except:
+        messages.warning(request, 'Hata!')
+        link='/error'
+        return HttpResponseRedirect(link)
+
+def contentdetail(request,id,slug):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    setting = Setting.objects.get(pk=1)
+    try:
+        content = Content.objects.get(pk=id)
+        images = CImages.objects.filter(content_id=id)
+        context = {'content': content,
+               'setting': setting,
+               'category': category,
+               'menu': menu,
+               'images': images, }
+        return render(request, 'content_detail.html', context)
+    except:
+        messages.warning(request, 'Hata!')
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+def error(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    context = {'category': category,
+               'setting': setting,
+               'menu': menu, }
+    return render(request, 'error_page.html', context)

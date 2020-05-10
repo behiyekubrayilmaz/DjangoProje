@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/content_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/error_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ozel2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ozel2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ozel2/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +65,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\ozel2\home\templates" />
+      <recent name="C:\Django\ozel2\content" />
       <recent name="C:\Django\ozel2\user\templates" />
       <recent name="C:\Django\ozel2\user" />
       <recent name="C:\Django\ozel2\order" />
-      <recent name="C:\Django\ozel2\home\templates" />
-      <recent name="C:\Django\ozel2\event" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,7 +318,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588909795642</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added Content">
+      <created>1589081618542</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1589081618542</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added Content">
+      <created>1589081680052</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1589081680052</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +363,8 @@
     <MESSAGE value="User change password" />
     <MESSAGE value="User comments list and delete" />
     <MESSAGE value="Kullanıcının etkinlik eklemesi eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcının etkinlik eklemesi eklendi" />
+    <MESSAGE value="Added Content" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Content" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -353,10 +380,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="677" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588263106387" />
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1589081617242">
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2" timestamp="1589081678518">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589081617242" />
+    <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589081678518" />
     <state x="258" y="72" key="MergeDialog" timestamp="1589081494951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -373,18 +400,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="504" y="142" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.0.1366.728@0.0.1366.728" timestamp="1589081478151" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1589081625971">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1589081685947">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589081625971" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589081685947" />
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1588991361531">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588991361531" />
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589081669208">
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589091506154">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589081669208" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589091506154" />
     <state x="592" y="0" width="710" height="728" key="find.popup" timestamp="1588263159674">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
