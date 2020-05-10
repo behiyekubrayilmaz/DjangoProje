@@ -115,3 +115,22 @@ def deletecomment(request,id):
     Comment.objects.filter(id=id, user_id=current_user.id).delete()
     messages.error(request, 'Comment deleted..')
     return HttpResponseRedirect('/user/comments')
+
+@login_required(login_url='/login') #Check login
+def etkinlik(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    current_user = request.user
+    addtoactivity = AddActivity.objects.filter(user_id=current_user.id,status='True')  # eklenen etkinliklerin gösterilmesi
+    # return HttpResponse(profile)
+    context = {'category': category,
+               'setting': setting,
+               'addtoactivity': addtoactivity,}
+    return render(request, 'user_etkinlik.html', context)
+
+@login_required(login_url='/login')  # Check login
+def deleteactivity(request,id):
+     current_user = request.user
+     AddActivity.objects.filter(id=id, user_id=current_user.id).delete()
+     messages.error(request, 'Activity deleted..')
+     return HttpResponseRedirect('/user/etkinlik')

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.forms import TextInput, FileInput, Select,EmailInput, PasswordInput
 
 from home.models import UserProfile
+from user.models import AddActivity
 
 
 class UserUpdateForm(UserChangeForm):

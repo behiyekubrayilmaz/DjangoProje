@@ -9,8 +9,10 @@ urlpatterns = [
     path('password/', views.change_password, name='change_password'),
     path('addtoactivity/<int:id>', views.addtoactivity, name='addtoactivity'),   #üyenin eklediği activity formdan gelen buton
     path('activity/', views.activity, name='activity'),
+    path('etkinlik/', views.etkinlik, name='etkinlik'),
     path('comments/', views.comments, name='comments'),
     path('deletecomment/<int:id>', views.deletecomment, name='deletecomment'),
+    path('deleteactivity/<int:id>', views.deleteactivity, name='deleteactivity'),
 
 
     # ex: /polls/5/

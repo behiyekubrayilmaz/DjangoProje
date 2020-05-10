@@ -1,0 +1,96 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{profile.user.first_name}} {{ setting.company}} {% endblock %}
+{% block keywords %} {{ setting.keywords}} {% endblock %}
+{% block description %} {{ setting.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>USER Profile</h3>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search" action="/search/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="query" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">All Categories</button>
+                                <ul class="social_small"><br>
+
+                                    <li class="facebook first"><a href="{{setting.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{setting.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li><a href="/">HOME </a></li>
+                    <li class="active"> / Activity Page</li>
+                </ul>
+                {% include "user_panel.html" %}
+
+                <div class="span9">
+                    <a href="/user/activity" class="btn btn-medium btn-success">Create Activity </a>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {{ message|safe }}
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="spacer30"></div>
+                    <h3 class="heading-success">MY ACTIVITY</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+
+                            <th class="text">Title</th>
+                            <th class="text">Detail</th>
+                            <th class="text">Status</th>
+                            <th class="text"><span>Post </span></th>
+                            <th class="text">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for rs in addtoactivity %}
+                            <tr>
+                                <td class="text">
+                                    <a href="/event/{{ rs.addtoactivity.id }}/{{ rs.addtoactivity.slug }}">
+                                        {{ rs.title }}
+                                    </a>
+                                </td>
+                                <td class="text">{{ rs.detail|safe }}</td>
+                                <td class="text">{{ rs.status }}</td>
+                                <td class="text">{{ rs.create_at }}</td>
+                                <td class="text"><a href="/user/deleteactivity/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
