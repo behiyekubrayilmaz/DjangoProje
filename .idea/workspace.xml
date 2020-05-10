@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6fc98c-c44d-43fb-affa-bd9c700b0fdc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/templates/user_etkinlik.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +39,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1YNxuzkUn4oZJiIo4ozUqS7uKQ8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -346,6 +338,7 @@
     <MESSAGE value="User comments list and delete" />
     <MESSAGE value="Kullanıcının etkinlik eklemesi eklendi" />
     <option name="LAST_COMMIT_MESSAGE" value="Kullanıcının etkinlik eklemesi eklendi" />
+    <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585398507277">
@@ -364,22 +357,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="589" y="12" width="724" height="701" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588909792881" />
+    <state x="258" y="72" key="MergeDialog" timestamp="1589081494951">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="258" y="72" key="MergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589081494951" />
+    <state x="749" y="98" key="MultipleFileMergeDialog" timestamp="1589081494956">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="749" y="98" key="MultipleFileMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1589081494956" />
     <state x="186" y="9" key="SettingsEditor" timestamp="1585398824437">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585398824437" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588909801760">
+    <state x="504" y="142" key="Vcs.Multiple.Commit.Info.Dialog.Key" timestamp="1589081478151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588909801760" />
+    <state x="504" y="142" key="Vcs.Multiple.Commit.Info.Dialog.Key/0.0.1366.728@0.0.1366.728" timestamp="1589081478151" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1589081527477">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589081527477" />
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1588991361531">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1588991361531" />
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588997849641">
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589081595923">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588997849641" />
+    <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589081595923" />
     <state x="592" y="0" width="710" height="728" key="find.popup" timestamp="1588263159674">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
