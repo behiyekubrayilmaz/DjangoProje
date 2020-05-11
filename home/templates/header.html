@@ -13,23 +13,72 @@
 
                 <div>
                     <nav>
+
                         <ul class="nav topnav">
+                            <!--
+
+
+                           -->
+
+
                             <li class="dropdown success ">
                                 <a href="/"><i class="icon-home icon-white"></i> Home</a>
                             </li>
+
+                            <!--
+                            {% if not menu %}
+                                {% load mptt_tags %}
+                                {% recursetree menu %}
+                                    <li class="dropdown">
+                                        <a href="/menu/{{ node.id }}">{{ node.title }}</a>
+                                        {% if not node.is_leaf_node %}
+                                            <ul class="dropdown-menu">
+                                                <li ><a href="">{{ children }}</a></li>
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endrecursetree %}
+                            {% endif %}
+-->
                             {% if menu %}
                                 {% load mptt_tags %}
                                 {% recursetree menu %}
-                                <li class="dropdown">
-                                    <a href="/menu/{{ node.id }}">{{ node.title }}</a>
-                                    {% if not node.is_leaf_node %}
-                                        <ul class="dropdown-menu">
-                                            <li ><a href="">{{ children }}</a></li>
-                                        </ul>
+                                    {% if  node.is_leaf_node %}
+                                        <li><a href="/menu/{{ node.id }}">{{ node.title }}1</a></li>
                                     {% endif %}
-                                </li>
+                                    {% if not node.is_leaf_node %}
+                                        <li class="dropdown info">
+                                            <a href="/menu/{{ node.id }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                            <ul class="dropdown-menu">{{ children }}</ul>
+                                        </li>
+
+                                    {% endif %}
                                 {% endrecursetree %}
                             {% endif %}
+
+
+                            <li class="dropdown success ">
+                                <a href="/"><i class="icon-home icon-white"></i> Events</a>
+                                {% load mptt_tags %}
+                                <ul class="dropdown-menu">
+                                    {% recursetree category %}
+                                        {% if  node.is_leaf_node %}
+                                            <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
+                                        {% endif %}
+                                        {% if not node.is_leaf_node %}
+                                            <li class="dropdown info">
+                                                <a href="/category/{{ node.id }}/{{ node.slug }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                                <ul class="dropdown-menu sub-menu">{{ children }}</ul>
+                                            </li>
+
+                                        {% endif %}
+                                    {% endrecursetree %}
+                                </ul>
+
+                            </li>
+
+
+
 
 
                             <li class="dropdown info">
@@ -56,8 +105,8 @@
                             {% endif %}
 
                             </li>
-
                         </ul>
+
                     </nav>
                 </div>
                 <!-- end menu -->

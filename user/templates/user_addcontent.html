@@ -6,6 +6,10 @@
 
 {% block head %}
     <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% load static %}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 {% endblock %}
 
 
@@ -47,47 +51,32 @@
             <div class="row">
                 <ul class="breadcrumb">
                     <li><a href="/">HOME </a></li>
-                    <li class="active"> / Activity Page</li>
+                    <li class="active"> / Create Activity Page</li>
                 </ul>
                 {% include "user_panel.html" %}
 
                 <div class="span9">
-                    <a href="/user/activity" class="btn btn-medium btn-success">Create Activity </a>
                     {% if messages %}
                         {% for message in messages %}
-                            {{ message|safe }}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message|safe }}
+                            </div>
                         {% endfor %}
                     {% endif %}
 
                     <div class="spacer30"></div>
-                    <h3 class="heading-success">MY ACTIVITY</h3>
-                    <table class="table">
-                        <thead>
-                        <tr>
+                    <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i>NEW Create Activity</h4>
 
-                            <th class="text">Title</th>
-                            <th class="text">Detail</th>
-                            <th class="text">Status</th>
-                            <th class="text"><span>Post </span></th>
-                            <th class="text">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for rs in addtoactivity %}
-                            <tr>
-                                <td class="text">
-                                    <a href="/event/{{ rs.addtoactivity.id }}/{{ rs.addtoactivity.slug }}">
-                                        {{ rs.title }}
-                                    </a>
-                                </td>
-                                <td class="text">{{ rs.detail|safe }}</td>
-                                <td class="text">{{ rs.status }}</td>
-                                <td class="text">{{ rs.create_at }}</td>
-                                <td class="text"><a href="/user/deleteactivity/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <form  enctype="multipart/form-data" method="POST" >
+                        {% csrf_token %}
+                        <fieldset class="form-horizontal">
+                            {{ form.media }}
+                            {{ form.as_p }}
+                        </fieldset>
+                        <div class="form-horizontal">
+                            <button class="btn btn-medium btn-success" type="submit">Send Activity </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

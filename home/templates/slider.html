@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="span3">
                     <ul class="nav nav-list ">
-                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATEGORY</a> </li>
+                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</a> </li>
                         {% load mptt_tags %}
                         {% recursetree category %}
                             <li class="dropdown">
@@ -19,7 +19,32 @@
                                 {% endif %}
                             </li>
                         {% endrecursetree %}
+
+
+                        <li class="dropdown success ">
+                            <a href="/"><i class="icon-home icon-white"></i> Events</a>
+                            {% load mptt_tags %}
+                            <ul class="dropdown-menu">
+                                {% recursetree category %}
+                                    {% if  node.is_leaf_node %}
+                                        <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
+                                    {% endif %}
+                                    {% if not node.is_leaf_node %}
+                                        <li class="dropdown info">
+                                            <a href="/category/{{ node.id }}/{{ node.slug }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                            <ul class="dropdown-menu sub-menu">{{ children }}</ul>
+                                        </li>
+
+                                    {% endif %}
+                                {% endrecursetree %}
+                            </ul>
+
+                        </li>
+
+
+
                     </ul>
+
                 </div>
                 <div class="span9">
                     <div class="camera_wrap camera_black_skin" id="camera_wrap_2">
@@ -27,18 +52,18 @@
 
                             <div data-thumb="" data-src="{{ rs.image.url }}" style="height:194px; width:219px">
                                 <div class="camera_caption fadeFromBottom">
-                                    <a href="/event/{{ rs.id }}/{{ rs.slug }}" class=""><h2>{{ rs.title }}</h2>
-                                        <div class="hidden-phone"></a>
+                                    <a href="/content/{{ rs.id }}/{{ rs.slug }}" class=""><h2>{{ rs.title }}</h2></a>
+                                    <div class="hidden-phone">
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         {% endfor %}
 
-                </div>
-                <!-- #camera_wrap_1 -->
+                    </div>
+                    <!-- #camera_wrap_1 -->
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>

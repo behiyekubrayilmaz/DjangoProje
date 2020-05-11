@@ -13,12 +13,12 @@ from home.models import Setting, ContactFormu, ContactFormMessage
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata =Event.objects.all()[:4]
+    sliderdata =Content.objects.filter(status='True')[:4]
     category=Category.objects.all()
     menu = Menu.objects.all()
     dayevents=Event.objects.all()[:4]
-    news = Content.objects.filter(type='haber').order_by('-id')[:4]
-    announcements= Content.objects.filter(type='duyuru').order_by('-id')[:3]
+    news = Content.objects.filter(type='haber',status='True').order_by('-id')[:4]
+    announcements= Content.objects.filter(type='duyuru',status='True').order_by('-id')[:3]
 
     context = {'setting': setting,
                'dayevents': dayevents,
@@ -33,16 +33,20 @@ def index(request):
 def aboutus(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context = {'setting': setting,
                'category': category,
+               'menu': menu,
                'page':'aboutus'}
     return render(request, 'aboutus.html', context)
 
 def references(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context = {'setting': setting,
                'category': category,
+               'menu': menu,
                'page':'references'}
     return render(request, 'references.html', context)
 
@@ -63,9 +67,11 @@ def contact(request):
 
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
+    menu = Menu.objects.all()
     form=ContactFormu()
     context = {'setting': setting,
                'category': category,
+               'menu': menu,
                'form':form}
     return render(request, 'contact.html', context)
 
@@ -99,8 +105,10 @@ def event_search(request):
         if form.is_valid():
             query =form.cleaned_data['query']
             category = Category.objects.all()
+            menu = Menu.objects.all()
             events = Event.objects.filter(title__icontains=query)
             context = {'events': events,
+                       'menu': menu,
                        'category': category, }
             return render(request, 'events_search.html', context)
     return HttpResponseRedirect('/')
@@ -123,7 +131,9 @@ def login_view(request):
             return HttpResponseRedirect('/login')
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context = {'category': category,
+               'menu': menu,
                'setting': setting,}
     return render(request, 'login.html', context)
 
@@ -141,8 +151,10 @@ def signup_view(request):
     form =SignUpForm()
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     context = {'category': category,
             'setting': setting,
+            'menu': menu,
             'form':form,}
     return render(request, 'signup.html', context)
 

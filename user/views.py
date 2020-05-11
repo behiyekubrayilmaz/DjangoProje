@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from content.models import Menu, Content, ContentForm
 from event.models import Category, Comment
 from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
@@ -15,10 +16,12 @@ from user.models import AddActivityForm, AddActivity
 def index(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     current_user = request.user
-    profile = UserProfile.objects.get(pk=current_user.id)
+    profile = UserProfile.objects.get(user_id=current_user.id)
     #return HttpResponse(profile)
     context = {'category': category,
+               'menu': menu,
                'setting': setting,
                'profile': profile,
                }
@@ -37,48 +40,15 @@ def user_update(request):
 
     else:
         category = Category.objects.all()
+        menu = Menu.objects.all()
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.userprofile)
         context = {'category': category,
-                       'user_form': user_form,
-                       'profile_form': profile_form
+                   'menu': menu,
+                   'user_form': user_form,
+                   'profile_form': profile_form
         }
         return render(request, 'user_update.html', context)
-
-@login_required(login_url='/login') #Check login
-def addtoactivity (request,id):
-    url = request.META.get('HTTP_REFERER')
-    if request.method=='POST':
-        form=AddActivityForm(request.POST)
-        if form.is_valid():
-            current_user=request.user
-            data=AddActivity()
-            data.user_id=id
-            data.title = form.cleaned_data['title']
-            data.name=form.cleaned_data['name']
-            data.surname = form.cleaned_data['surname']
-            data.image = form.cleaned_data['image']
-            data.detail = form.cleaned_data['detail']
-            data.save()
-            messages.success(request,'Etkiliğiniz eklendi. Teşekkür ederiz.')
-            return HttpResponseRedirect(url)
-
-    messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.')
-    return HttpResponseRedirect(url)
-
-
-def activity(request):
-    setting = Setting.objects.get(pk=1)
-    category = Category.objects.all()
-    current_user = request.user
-    addtoactivity= AddActivity.objects.filter(user_id=current_user.id, status='True')  # eklenen etkinliklerin gösterilmesi
-    # return HttpResponse(profile)
-    context = {'category': category,
-               'setting': setting,
-               'addtoactivity': addtoactivity,
-               }
-    return render(request, 'user_activity.html', context)
-
 
 def change_password(request):
     if request.method=='POST':
@@ -94,17 +64,20 @@ def change_password(request):
     else:
         category = Category.objects.all()
         form = PasswordChangeForm(request.user)
+        menu = Menu.objects.all()
         return render(request, 'change_password.html',{
-            'form':form,'category': category})
+            'form':form,'category': category,'menu': menu})
 
 @login_required(login_url='/login') #Check login
 def comments(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     current_user = request.user
     comments= Comment.objects.filter(user_id=current_user.id)
     context = {'category': category,
                'setting': setting,
+               'menu': menu,
                'comments': comments,
                }
     return render(request, 'user_comments.html', context)
@@ -116,21 +89,81 @@ def deletecomment(request,id):
     messages.error(request, 'Comment deleted..')
     return HttpResponseRedirect('/user/comments')
 
-@login_required(login_url='/login') #Check login
-def etkinlik(request):
-    setting = Setting.objects.get(pk=1)
-    category = Category.objects.all()
-    current_user = request.user
-    addtoactivity = AddActivity.objects.filter(user_id=current_user.id,status='True')  # eklenen etkinliklerin gösterilmesi
-    # return HttpResponse(profile)
-    context = {'category': category,
-               'setting': setting,
-               'addtoactivity': addtoactivity,}
-    return render(request, 'user_etkinlik.html', context)
+
+
 
 @login_required(login_url='/login')  # Check login
-def deleteactivity(request,id):
-     current_user = request.user
-     AddActivity.objects.filter(id=id, user_id=current_user.id).delete()
-     messages.error(request, 'Activity deleted..')
-     return HttpResponseRedirect('/user/etkinlik')
+def addcontent(request):
+    if request.method == 'POST':
+        form = ContentForm(request.POST,request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            data = Content()
+            data.user_id = current_user.id
+            data.title = form.cleaned_data['title']
+            data.description = form.cleaned_data['description']
+            data.image = form.cleaned_data['image']
+            data.type = form.cleaned_data['type']
+            data.slug = form.cleaned_data['slug']
+            data.detail = form.cleaned_data['detail']
+            data.status= 'False'
+            data.save()
+            messages.success(request, 'Etkiliğiniz eklendi. Teşekkür ederiz.')
+            return HttpResponseRedirect('/user/contents')
+        else:
+            messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
+            return HttpResponseRedirect('/user/addcontent')
+    else:
+        setting = Setting.objects.get(pk=1)
+        menu = Menu.objects.all()
+        category = Category.objects.all()
+        form = ContentForm()
+        context = {'menu': menu,
+                   'category': category,
+                   'setting': setting,
+                   'form': form, }
+        return render(request, 'user_addcontent.html', context)
+
+
+@login_required(login_url='/login')  # Check login
+def contents(request):          #content list
+    setting = Setting.objects.get(pk=1)
+    menu = Menu.objects.all()
+    category = Category.objects.all()
+    current_user = request.user
+    contents = Content.objects.filter(user_id=current_user.id)  # eklenen etkinliklerin gösterilmesi
+    context = {'menu': menu,
+               'category': category,
+               'setting': setting,
+               'contents': contents, }
+    return render(request, 'user_contents.html', context)
+
+
+def contentdelete(request):
+    current_user = request.user
+    Content.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.error(request, 'Activity deleted..')
+    return HttpResponseRedirect('/user/contents')
+
+
+def contentedit(request,id):
+    content =Content.objects.get(id=id)
+    if request.method == 'POST':
+        form = ContentForm(request.POST,request.FILES,instance=content)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Etkiliğiniz eklendi. Teşekkür ederiz.')
+            return HttpResponseRedirect('/user/contents')
+        else:
+            messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
+            return HttpResponseRedirect('/user/contentedit/'+str(id))
+    else:
+        setting = Setting.objects.get(pk=1)
+        menu = Menu.objects.all()
+        category = Category.objects.all()
+        form = ContentForm(instance=content)
+        context = {'menu': menu,
+                   'category': category,
+                   'setting': setting,
+                   'form': form, }
+        return render(request, 'user_addcontent.html', context)

@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} {{profile.user.first_name}} {{ setting.company}} {% endblock %}
+{% block title %} {{profile.user.first_name}} Comment Page {% endblock %}
 {% block keywords %} {{ setting.keywords}} {% endblock %}
 {% block description %} {{ setting.description}} {% endblock %}
 
@@ -45,33 +45,14 @@
     <section id="maincontent">
         <div class="container">
             <div class="row">
+                <ul class="breadcrumb">
+                    <li><a href="/">HOME </a></li>
+                    <li class="active"> / Contents</li>
+                </ul>
                 {% include "user_panel.html" %}
 
                 <div class="span9">
-
-                    <div class="spacer30"></div>
-                    <h4 class="heading-success"><i class="m-icon-big-swapdown m-icon-white"></i></h4>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="text"></th>
-                            <th class="text">Name-Surname</th>
-                            <th class="text">E-mail</th>
-                            <th class="text">Phone</th>
-                            <th class="text">Address</th>
-                            <th class="text">City</th>
-                            <th class="text">Country</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><img src="{{ user.userprofile.image.url }}" style="height: 50%"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div style="text-align: center;">
-
-                   {% if messages %}
+                    {% if messages %}
                         {% for message in messages %}
                             <div class="alert alert-{{ message.tags }}" role="alert">
                                 {{ message }}
@@ -79,26 +60,36 @@
                         {% endfor %}
                     {% endif %}
 
-                        <form method="post">
-                            {% csrf_token %}
-                            {% for field in form %}
-                                <p>
-                                    {{ field.label_tag }}<br>
+                    <div class="spacer30"></div>
+                    <h4 class="heading-success"><a href="/user/addcontent" class="btn btn-medium btn-success">Create Activity </a>
+                        <i class="m-icon-big-swapdown m-icon-white"></i></h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text">Image</th>
+                            <th class="text">Title</th>
+                            <th class="text">Type</th>
+                            <th class="text">Status</th>
+                            <th class="text">Post</th>
+                            <th class="text">Detail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for rs in contents %}
+                            <tr>
+                                <td class="text"><a href="/content/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{ rs.image.url }}" style="max-height: 10%;"></a></td>
+                                <td class="text"><a href="/content/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></td>
+                                <td class="text">{{ rs.type }}</td>
+                                <td class="text">{{ rs.status }}</td>
+                                <td class="text">{{ rs.create_at }}</td>
+                                <td class="text"><a href="/user/contentedit/{{ rs.id }}">EDIT</a> </td>
+                                <td class="text"><a href="/user/contentdelete/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
 
-                                    {{ field }}
-                                    {% if field.help_text %}
-                                        <small style="color: grey">{{ field.help_text }}</small>
-                                    {% endif %}
-                                    {% for error in field.errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                </p>
-                            {% endfor %}
-                            <div class="form-horizontal">
-                                <button type="submit">Save Changed</button>
-                            </div>
-                        </form>
-                    </div>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
