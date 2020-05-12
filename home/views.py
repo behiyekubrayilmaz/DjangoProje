@@ -79,9 +79,11 @@ def contact(request):
 def category_events(request,id,slug):
     events = Event.objects.filter(category_id=id)
     category = Category.objects.all()
+    menu = Menu.objects.all()
     categorydata = Category.objects.get(pk=id)
     context = {'events': events,
                'category': category,
+               'menu': menu,
                'categorydata':categorydata}
     return render(request, 'events.html', context)
 
@@ -89,11 +91,13 @@ def event_detail(request,id,slug):
     events = Event.objects.get(pk=id)
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
+    menu = Menu.objects.all()
     comments=Comment.objects.filter(event_id=id,status='True')
     images =Images.objects.filter(event_id=id)
     context = {'events': events,
                'setting': setting,
                'category': category,
+               'menu': menu,
                'comments': comments,
                'images': images,}
     return render(request, 'event_detail.html', context)
@@ -106,12 +110,13 @@ def event_search(request):
             query =form.cleaned_data['query']
             category = Category.objects.all()
             menu = Menu.objects.all()
-            events = Event.objects.filter(title__icontains=query)
-            context = {'events': events,
-                       'menu': menu,
-                       'category': category, }
+            content = Content.objects.filter(title__icontains=query)
+            context = {'content': content,
+                        'menu': menu,
+                        'category': category, }
             return render(request, 'events_search.html', context)
     return HttpResponseRedirect('/')
+
 
 def logout_view(request):
     logout(request)
@@ -195,3 +200,5 @@ def error(request):
                'setting': setting,
                'menu': menu, }
     return render(request, 'error_page.html', context)
+
+

@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from mptt.admin import DraggableMPTTAdmin
 
-from content.models import CImages, Menu, Content
+from content.models import CImages, Menu, Content, Commentt
 
 
 class ContentImageInline(admin.TabularInline):
@@ -26,6 +26,11 @@ class MenuAdmin(DraggableMPTTAdmin):
     list_filter = ['status']
     inlines = [MenuContentInline]
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['subject', 'comment', 'content', 'user', 'status']
+    list_filter = ['status']
+
 admin.site.register(Menu,MenuAdmin)
 #admin.site.register(Event)
 admin.site.register(Content,ContentAdmin)
+admin.site.register(Commentt,CommentAdmin)

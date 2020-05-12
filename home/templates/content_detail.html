@@ -155,7 +155,7 @@
                                         </div>
                                     {% endfor %}
                                 {% endif %}
-                                <form name="comment" action="/event/addcomment/{{ content.id }}" method="post" role="form" class="contactForm">
+                                <form name="commentt" action="/content/addcomment/{{ content.id }}" method="post" role="form" class="contactForm">
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="span12 form-group">

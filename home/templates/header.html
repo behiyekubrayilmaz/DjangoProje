@@ -15,40 +15,19 @@
                     <nav>
 
                         <ul class="nav topnav">
-                            <!--
 
-
-                           -->
-
-
-                            <li class="dropdown success ">
-                                <a href="/"><i class="icon-home icon-white"></i> Home</a>
+                            <li class="dropdown primary">
+                                <a href="/"><i class="icon-home icon-white"></i> Anasayfa</a>
                             </li>
-
-                            <!--
-                            {% if not menu %}
-                                {% load mptt_tags %}
-                                {% recursetree menu %}
-                                    <li class="dropdown">
-                                        <a href="/menu/{{ node.id }}">{{ node.title }}</a>
-                                        {% if not node.is_leaf_node %}
-                                            <ul class="dropdown-menu">
-                                                <li ><a href="">{{ children }}</a></li>
-                                            </ul>
-                                        {% endif %}
-                                    </li>
-                                {% endrecursetree %}
-                            {% endif %}
--->
                             {% if menu %}
                                 {% load mptt_tags %}
                                 {% recursetree menu %}
                                     {% if  node.is_leaf_node %}
-                                        <li><a href="/menu/{{ node.id }}">{{ node.title }}1</a></li>
+                                        <li><a href="/menu/{{ node.id }}">{{ node.title }}</a></li>
                                     {% endif %}
                                     {% if not node.is_leaf_node %}
-                                        <li class="dropdown info">
-                                            <a href="/menu/{{ node.id }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                        <li class="dropdown primary">
+                                            <a href="/menu/{{ node.id }}"><i class="icon-bookmark icon-white"></i> {{ node.title }}</a>
                                             <ul class="dropdown-menu">{{ children }}</ul>
                                         </li>
 
@@ -56,42 +35,17 @@
                                 {% endrecursetree %}
                             {% endif %}
 
-
-                            <li class="dropdown success ">
-                                <a href="/"><i class="icon-home icon-white"></i> Events</a>
-                                {% load mptt_tags %}
-                                <ul class="dropdown-menu">
-                                    {% recursetree category %}
-                                        {% if  node.is_leaf_node %}
-                                            <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
-                                        {% endif %}
-                                        {% if not node.is_leaf_node %}
-                                            <li class="dropdown info">
-                                                <a href="/category/{{ node.id }}/{{ node.slug }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
-                                                <ul class="dropdown-menu sub-menu">{{ children }}</ul>
-                                            </li>
-
-                                        {% endif %}
-                                    {% endrecursetree %}
-                                </ul>
-
+                            <li class="dropdown primary">
+                                <a href="/aboutus"><i class="icon-bullhorn icon-white"></i> Hakkımızda</a>
                             </li>
-
-
-
-
-
-                            <li class="dropdown info">
-                                <a href="/aboutus"><i class="icon-bullhorn icon-white"></i> AboutUs</a>
+                            <li class="dropdown primary">
+                                <a href="/contact"><i class="icon-envelope icon-white"></i> Bize Ulaşın</a>
                             </li>
-                            <li class="inverse">
-                                <a href="/contact"><i class="icon-envelope icon-white"></i> Contact</a>
-                            </li>
-                            <li class="inverse">
-                                <a href="/references"><i class="icon-envelope icon-white"></i> References</a>
+                            <li class="dropdown primary">
+                                <a href="/references"><i class="icon-envelope icon-white"></i> Referanslarımız</a>
                             </li>
                             {% if user.id is not None %}
-                                <li class="dropdown danger">
+                                <li class="inverse">
                                     <a href="/user"><i class="icon-user icon-white">
 
                                     </i> {{ user.first_name }}</a>
@@ -100,7 +54,7 @@
                                         <li><a href="/logout">Logout</a></li>
                                     </ul>
                                     {% else %}
-                                <li class="dropdown danger">
+                                <li class="inverse">
                                 <a href="/login"><i class="icon-user icon-white"></i> Login</a>
                             {% endif %}
 

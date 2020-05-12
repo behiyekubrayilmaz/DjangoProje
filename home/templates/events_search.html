@@ -28,27 +28,28 @@
             <div class="row">
                 <div class="span12">
 
-                        <div class="widget">
-                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Events </h4>
+                    <div class="widget">
+                        <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="icon-search icon-white"></i></span>&nbsp;&nbsp;Aranan Sonuçlar </h4>
 
-                            <table class="table table-hover">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>Image</th>
+                                <th>Activity Name</th>
+                                <th>Category</th>
+                                <th>Detail</th>
+                            </tr>
+                            {% for rs in content %}
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Event Name</th>
-                                    <th>Category</th>
-                                    <th>Detail</th>
+                                    <td><a href="/content/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="max-height: 50%;"> </a></td>
+                                    <td><h6 class="event-name"><a href="/event/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6></td>
+                                    <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
+                                    <td>{{ rs.detail |safe }}</td>
                                 </tr>
-                                {% for rs in events %}
-                                    <tr>
-                                        <td><a href="/event/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="height: 50%"> </a></td>
-                                        <td><h6 class="event-name"><a href="/event/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6></td>
-                                        <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
-                                        <td>{{ rs.detail |safe }}</td>
-                                    </tr>
-                                {% endfor %}
+                            {% endfor %}
 
-                            </table>
-                        </div>
+
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,7 +2,6 @@
 
 <section id="intro">
     <div class="jumbotron masthead">
-
         <div class="container">
             <div class="row">
                 <div class="span3">
@@ -11,40 +10,18 @@
                         {% load mptt_tags %}
                         {% recursetree category %}
                             <li class="dropdown">
-                                <a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+                                {% if  node.is_leaf_node %}
+                                    <a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
+                                {% endif %}
                                 {% if not node.is_leaf_node %}
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">{{ children }}</a></li>
-                                    </ul>
+                                    <li class="dropdown info">
+                                        <a href="/category/{{ node.id }}/{{ node.slug }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                        <ul class="dropdown-menu sub-menu">{{ children }}</ul>
+                                    </li>
                                 {% endif %}
                             </li>
                         {% endrecursetree %}
-
-
-                        <li class="dropdown success ">
-                            <a href="/"><i class="icon-home icon-white"></i> Events</a>
-                            {% load mptt_tags %}
-                            <ul class="dropdown-menu">
-                                {% recursetree category %}
-                                    {% if  node.is_leaf_node %}
-                                        <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
-                                    {% endif %}
-                                    {% if not node.is_leaf_node %}
-                                        <li class="dropdown info">
-                                            <a href="/category/{{ node.id }}/{{ node.slug }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
-                                            <ul class="dropdown-menu sub-menu">{{ children }}</ul>
-                                        </li>
-
-                                    {% endif %}
-                                {% endrecursetree %}
-                            </ul>
-
-                        </li>
-
-
-
                     </ul>
-
                 </div>
                 <div class="span9">
                     <div class="camera_wrap camera_black_skin" id="camera_wrap_2">
