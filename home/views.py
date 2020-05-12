@@ -8,7 +8,7 @@ from django.shortcuts import render
 from content.models import Content, Menu, CImages
 from event.models import Event, Category, Images, Comment
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, FAQ
 
 
 def index(request):
@@ -202,3 +202,13 @@ def error(request):
     return render(request, 'error_page.html', context)
 
 
+def faq(request):
+    setting = Setting.objects.get(pk=1)
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    faq= FAQ.objects.all().order_by('ordernumber')
+    context = {'category': category,
+               'setting': setting,
+               'menu': menu,
+               'faq': faq,}
+    return render(request, 'faq.html', context)

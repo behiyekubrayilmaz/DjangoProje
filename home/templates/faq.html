@@ -1,0 +1,88 @@
+{% extends "homebase.html" %}
+
+{% block title %} Sıkça Sorulan Sorular {% endblock %}
+{% block keywords %} {{ categorydata.keywords}} {% endblock %}
+{% block description %} {{ categorydata.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{categorydata.icon.url}}' />
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <span><h4>Sıkça Sorulan Sorular</h4></span><br>
+                    {% for rs in faq %}
+                        <button class="accordion">{{ rs.question }}</button>
+                        <div class="panel">
+                            <p>{{ rs.answer }}</p>
+                        </div>
+                    {% endfor %}
+                    <!-- strat question group 1 -->
+
+                    <script>
+                        var acc = document.getElementsByClassName("accordion");
+                        var i;
+
+                        for (i = 0; i < acc.length; i++) {
+                            acc[i].addEventListener("click", function() {
+                                this.classList.toggle("active");
+                                var panel = this.nextElementSibling;
+                                if (panel.style.display === "block") {
+                                    panel.style.display = "none";
+                                } else {
+                                    panel.style.display = "block";
+                                }
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
