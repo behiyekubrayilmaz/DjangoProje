@@ -8,7 +8,7 @@ from django.shortcuts import render
 from content.models import Content, Menu, CImages
 from event.models import Event, Category, Images, Comment
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage, FAQ
+from home.models import Setting, ContactFormu, ContactFormMessage, FAQ, UserProfile
 
 
 def index(request):
@@ -151,7 +151,16 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return HttpResponseRedirect('/')
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/user.png"
+            data.save()
+            messages.success(request, "Başarılı bir giriş yaptınız..")
+            return HttpResponseRedirect('/user')
+        else:
+            messages.error(request, "Lütfen kontrol ediniz")
+            return HttpResponseRedirect('/login')
 
     form =SignUpForm()
     setting = Setting.objects.get(pk=1)
