@@ -69,6 +69,7 @@
                             <th class="text">Image</th>
                             <th class="text">Title</th>
                             <th class="text">Type</th>
+                            <th class="text">Gallery</th>
                             <th class="text">Status</th>
                             <th class="text">Post</th>
                             <th class="text">Detail</th>
@@ -81,6 +82,7 @@
                                     <img src="{{ rs.image.url }}" style="max-height: 10%;"></a></td>
                                 <td class="text"><a href="/content/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></td>
                                 <td class="text">{{ rs.type }}</td>
+                                <td><a href="javascript:;" onclick="window.open('/user/contentaddimage/{{ rs.id }}', 'gallery','height=600,width=800,top=60,left=150')"><span class="btn btn-large "><i class="icon-camera"></i></span> </a></td>
                                 <td class="text">{{ rs.status }}</td>
                                 <td class="text">{{ rs.create_at }}</td>
                                 <td class="text"><a href="/user/contentedit/{{ rs.id }}">EDIT</a> </td>

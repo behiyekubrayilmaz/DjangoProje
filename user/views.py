@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from content.models import Menu, Content, ContentForm
+from content.models import Menu, Content, ContentForm, ContentImageForm, CImages
 from event.models import Category, Comment
 from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
@@ -167,3 +167,29 @@ def contentedit(request,id):
                    'setting': setting,
                    'form': form, }
         return render(request, 'user_addcontent.html', context)
+
+
+def contentaddimage(request,id):
+    if request.method == 'POST':
+        lasturl = request.META.get('HTTP_REFERER')
+        form = ContentImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = CImages()
+            data.title = form.cleaned_data['title']
+            data.content_id = id
+            data.image = form.cleaned_data['image']
+            data.save()
+            messages.success(request, 'Fotograf eklendi. Teşekkür ederiz.')
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request,
+                             'Fotograf eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+    else:
+        content = Content.objects.get(id=id)
+        images = CImages.objects.filter(content_id=id)
+        form = ContentImageForm()
+        context = {'content': content,
+                   'images': images,
+                   'form': form, }
+        return render(request, 'content_gallery.html', context)

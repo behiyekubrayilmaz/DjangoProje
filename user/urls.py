@@ -16,6 +16,7 @@ urlpatterns = [
     path('contents/', views.contents, name='contents'),   #contents list
     path('contentedit/<int:id>', views.contentedit, name='contentedit'),  #contentedit
     path('contentdelete/<int:id>', views.contentdelete, name='contentdelete'),
+    path('contentaddimage/<int:id>', views.contentaddimage, name='contentaddimage'),
 
     # ex: /polls/5/
     #path('<int:question_id>/', views.detail, name='detail'),
