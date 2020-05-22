@@ -8,8 +8,6 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
-
-
 class AddActivity(models.Model):
     STATUS = (
         ('New', 'Yeni'),

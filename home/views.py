@@ -13,21 +13,19 @@ from home.models import Setting, ContactFormu, ContactFormMessage, FAQ, UserProf
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata =Content.objects.filter(status='True')[:4]
+    sliderdata =Event.objects.filter(status='True')[:4]
     category=Category.objects.all()
     menu = Menu.objects.all()
-    dayevents=Event.objects.all()[:4]
-    news = Content.objects.filter(type='haber',status='True').order_by('-id')[:4]
-    announcements= Content.objects.filter(type='duyuru',status='True').order_by('-id')[:3]
+    news = Event.objects.filter(status='True').order_by('-id')[:4]
+    announcements= Event.objects.filter(status='True').order_by('?')[:3]
 
     context = {'setting': setting,
-               'dayevents': dayevents,
                'news': news,
                'announcements': announcements,
-               'menu':menu,
+               'menu': menu,
                'category': category,
                'page':'home',
-               'sliderdata':sliderdata}
+               'sliderdata': sliderdata}
     return render(request, 'index.html', context)
 
 def aboutus(request):
@@ -68,7 +66,7 @@ def contact(request):
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
     menu = Menu.objects.all()
-    form=ContactFormu()
+    form = ContactFormu()
     context = {'setting': setting,
                'category': category,
                'menu': menu,
@@ -76,7 +74,7 @@ def contact(request):
     return render(request, 'contact.html', context)
 
 
-def category_events(request,id,slug):
+def category_events(request,id,slug):         #duyuruların hepsinin listelendiği yer
     events = Event.objects.filter(category_id=id)
     category = Category.objects.all()
     menu = Menu.objects.all()
@@ -110,8 +108,8 @@ def event_search(request):
             query =form.cleaned_data['query']
             category = Category.objects.all()
             menu = Menu.objects.all()
-            content = Content.objects.filter(title__icontains=query)
-            context = {'content': content,
+            event = Event.objects.filter(title__icontains=query)
+            context = {'event': event,
                         'menu': menu,
                         'category': category, }
             return render(request, 'events_search.html', context)
@@ -199,6 +197,33 @@ def contentdetail(request,id,slug):
     except:
         messages.warning(request, 'Hata!')
         link = '/error'
+        return HttpResponseRedirect(link)
+
+def announcment_content(request,id,slug):
+    category = Category.objects.all()
+    menu = Menu.objects.all()
+    try:
+        content = Content.objects.get(menu_id=id)
+        setting = Setting.objects.get(pk=1)
+        context = {'category': category,
+                   'content': content,
+                   'menu': menu,
+                   'setting': setting}
+        return render(request, 'detail.html', context)
+    except:
+        messages.warning(request, 'Hata!')
+        link = '/error'
+        return HttpResponseRedirect(link)
+
+
+def category(request,id):
+    try:
+        content = Content.objects.get(menu_id=id)
+        link = '/announcments/'+str(content.id)+'/menu'
+        return HttpResponseRedirect(link)
+    except:
+        messages.warning(request, 'Hata!')
+        link='/error'
         return HttpResponseRedirect(link)
 
 def error(request):

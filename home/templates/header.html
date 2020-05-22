@@ -27,26 +27,39 @@
                                     {% endif %}
                                     {% if not node.is_leaf_node %}
                                         <li class="dropdown primary">
-                                            <a href="/menu/{{ node.id }}"><i class="icon-bookmark icon-white"></i> {{ node.title }}</a>
+                                            <a href="/"><i class="icon-bookmark icon-white"></i> {{ node.title }}</a>
                                             <ul class="dropdown-menu">{{ children }}</ul>
                                         </li>
 
                                     {% endif %}
                                 {% endrecursetree %}
                             {% endif %}
+                            {% load mptt_tags %}
+                            {% recursetree category %}
+                                {% if  node.is_leaf_node %}
+                                    <li><a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a></li>
+                                {% endif %}
+                                {% if not node.is_leaf_node %}
+                                    <li class="dropdown primary">
+                                        <a href="/"><i class="icon-star icon-white"></i> {{ node.title }}</a>
+                                        <ul class="dropdown-menu" style="display: none;" >{{ children }}
+                                            <ul class="dropdown-menu sub-menu" style="display: none;">{{ children }} </ul>
+                                        </ul>
+                                    </li>
+                                {% endif %}
+                            {% endrecursetree %}
+                            <li class="dropdown primary">
 
+                            </li>
                             <li class="dropdown primary">
                                 <a href="/aboutus"><i class="icon-bullhorn icon-white"></i> Hakkımızda</a>
+                                <ul class="dropdown-menu" style="display: none;">
+                                    <li><a href="/contact"><i class="icon-envelope icon-white"></i> Bize Ulaşın</a></li>
+                                    <li><a href="/references"><i class="icon-envelope icon-white"></i> Referanslarımız</a></li>
+                                    <li><a href="/faq"><i class="icon-question-sign icon-white"></i> S.S.S</a></li>
+                                </ul>
                             </li>
-                            <li class="dropdown primary">
-                                <a href="/contact"><i class="icon-envelope icon-white"></i> Bize Ulaşın</a>
-                            </li>
-                            <li class="dropdown primary">
-                                <a href="/references"><i class="icon-envelope icon-white"></i> Referanslarımız</a>
-                            </li>
-                            <li class="dropdown primary">
-                                <a href="/faq"><i class="icon-question-sign icon-white"></i> S.S.S</a>
-                            </li>
+
                             {% if user.id is not None %}
                                 <li class="inverse">
                                     <a href="/user"><i class="icon-user icon-white">

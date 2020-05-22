@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from content.models import Menu, Content, ContentForm, ContentImageForm, CImages
-from event.models import Category, Comment
+from event.models import Category, Comment, EventForm, Event, EventImageForm, Images
 from home.models import Setting, UserProfile
 from user.forms import UserUpdateForm, ProfileUpdateForm
 from user.models import AddActivityForm, AddActivity
@@ -93,31 +93,31 @@ def deletecomment(request,id):
 
 
 @login_required(login_url='/login')  # Check login
-def addcontent(request):
+def addevent(request):
     if request.method == 'POST':
-        form = ContentForm(request.POST,request.FILES)
+        form = EventForm(request.POST,request.FILES)
         if form.is_valid():
             current_user = request.user
-            data = Content()
+            data = Event()
             data.user_id = current_user.id
             data.title = form.cleaned_data['title']
             data.description = form.cleaned_data['description']
             data.image = form.cleaned_data['image']
-            data.type = form.cleaned_data['type']
+            data.category = form.cleaned_data['category']
             data.slug = form.cleaned_data['slug']
             data.detail = form.cleaned_data['detail']
             data.status= 'False'
             data.save()
             messages.success(request, 'Etkiliğiniz eklendi. Teşekkür ederiz.')
-            return HttpResponseRedirect('/user/contents')
+            return HttpResponseRedirect('/user/events')
         else:
             messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
-            return HttpResponseRedirect('/user/addcontent')
+            return HttpResponseRedirect('/user/addevent')
     else:
         setting = Setting.objects.get(pk=1)
         menu = Menu.objects.all()
         category = Category.objects.all()
-        form = ContentForm()
+        form = EventForm()
         context = {'menu': menu,
                    'category': category,
                    'setting': setting,
@@ -126,42 +126,42 @@ def addcontent(request):
 
 
 @login_required(login_url='/login')  # Check login
-def contents(request):          #content list
+def events(request):          #content list
     setting = Setting.objects.get(pk=1)
     menu = Menu.objects.all()
     category = Category.objects.all()
     current_user = request.user
-    contents = Content.objects.filter(user_id=current_user.id)  # eklenen etkinliklerin gösterilmesi
+    events = Event.objects.filter(user_id=current_user.id)  # eklenen etkinliklerin gösterilmesi
     context = {'menu': menu,
                'category': category,
                'setting': setting,
-               'contents': contents, }
+               'events': events, }
     return render(request, 'user_contents.html', context)
 
 
-def contentdelete(request):
+def eventdelete(request,id):
     current_user = request.user
-    Content.objects.filter(id=id, user_id=current_user.id).delete()
+    Event.objects.filter(id=id, user_id=current_user.id).delete()
     messages.error(request, 'Activity deleted..')
-    return HttpResponseRedirect('/user/contents')
+    return HttpResponseRedirect('/user/events')
 
 
-def contentedit(request,id):
-    content =Content.objects.get(id=id)
+def eventedit(request,id):
+    events =Event.objects.get(id=id)
     if request.method == 'POST':
-        form = ContentForm(request.POST,request.FILES,instance=content)
+        form = EventForm(request.POST,request.FILES,instance=events)
         if form.is_valid():
             form.save()
             messages.success(request, 'Etkiliğiniz eklendi. Teşekkür ederiz.')
-            return HttpResponseRedirect('/user/contents')
+            return HttpResponseRedirect('/user/events')
         else:
             messages.warning(request, 'Etkinliğiniz eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
-            return HttpResponseRedirect('/user/contentedit/'+str(id))
+            return HttpResponseRedirect('/user/eventedit/'+str(id))
     else:
         setting = Setting.objects.get(pk=1)
         menu = Menu.objects.all()
         category = Category.objects.all()
-        form = ContentForm(instance=content)
+        form = EventForm(instance=events)
         context = {'menu': menu,
                    'category': category,
                    'setting': setting,
@@ -169,14 +169,14 @@ def contentedit(request,id):
         return render(request, 'user_addcontent.html', context)
 
 
-def contentaddimage(request,id):
+def eventaddimage(request,id):
     if request.method == 'POST':
         lasturl = request.META.get('HTTP_REFERER')
-        form = ContentImageForm(request.POST, request.FILES)
+        form = EventImageForm(request.POST, request.FILES)
         if form.is_valid():
-            data = CImages()
+            data = Images()
             data.title = form.cleaned_data['title']
-            data.content_id = id
+            data.event_id = id
             data.image = form.cleaned_data['image']
             data.save()
             messages.success(request, 'Fotograf eklendi. Teşekkür ederiz.')
@@ -186,10 +186,10 @@ def contentaddimage(request,id):
                              'Fotograf eklenemedi. Lütfen kontrol edip tekrar deneyiniz.' + str(form.errors))
             return HttpResponseRedirect(lasturl)
     else:
-        content = Content.objects.get(id=id)
-        images = CImages.objects.filter(content_id=id)
-        form = ContentImageForm()
-        context = {'content': content,
+        events = Event.objects.get(id=id)
+        images = Images.objects.filter(event_id=id)
+        form = EventImageForm()
+        context = {'events': events,
                    'images': images,
                    'form': form, }
         return render(request, 'content_gallery.html', context)

@@ -42,12 +42,12 @@
         </div>
     </section>
 
-    <section id="maincontent">
+    <section id="mainevents">
         <div class="container">
             <div class="row">
                 <ul class="breadcrumb">
                     <li><a href="/">HOME </a></li>
-                    <li class="active"> / Contents</li>
+                    <li class="active"> / eventss</li>
                 </ul>
                 {% include "user_panel.html" %}
 
@@ -61,7 +61,7 @@
                     {% endif %}
 
                     <div class="spacer30"></div>
-                    <h4 class="heading-success"><a href="/user/addcontent" class="btn btn-medium btn-success">Create Activity </a>
+                    <h4 class="heading-success"><a href="/user/addevent" class="btn btn-medium btn-success">Create Activity </a>
                         <i class="m-icon-big-swapdown m-icon-white"></i></h4>
                     <table class="table">
                         <thead>
@@ -76,17 +76,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for rs in contents %}
+                        {% for rs in events  %}
                             <tr>
-                                <td class="text"><a href="/content/{{ rs.id }}/{{ rs.slug }}">
-                                    <img src="{{ rs.image.url }}" style="max-height: 10%;"></a></td>
-                                <td class="text"><a href="/content/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></td>
-                                <td class="text">{{ rs.type }}</td>
-                                <td><a href="javascript:;" onclick="window.open('/user/contentaddimage/{{ rs.id }}', 'gallery','height=600,width=800,top=60,left=150')"><span class="btn btn-large "><i class="icon-camera"></i></span> </a></td>
+                                <td class="text"><a href="/events/{{ rs.id }}/{{ rs.slug }}">
+                                    <img src="{{ rs.image.url }}" style="max-height: 100px;"></a></td>
+                                <td class="text"><a href="/events/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></td>
+                                <td class="text">{{ rs.category }}</td>
+                                <td><a href="javascript:;" onclick="window.open('/user/eventaddimage/{{ rs.id }}', 'gallery','height=600,width=800,top=60,left=150')"><span class="btn btn-large "><i class="icon-camera"></i></span> </a></td>
                                 <td class="text">{{ rs.status }}</td>
                                 <td class="text">{{ rs.create_at }}</td>
-                                <td class="text"><a href="/user/contentedit/{{ rs.id }}">EDIT</a> </td>
-                                <td class="text"><a href="/user/contentdelete/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
+                                <td class="text"><a href="/user/eventedit/{{ rs.id }}">EDIT</a> </td>
+                                <td class="text"><a href="/user/eventdelete/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')">Delete</a> </td>
 
                             </tr>
                         {% endfor %}

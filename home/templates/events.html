@@ -19,7 +19,22 @@
                     <div class="span8">
                         <h3><br><i class="m-icon-big-swapright m-icon-white"></i>{{categorydata.title}}</h3>
                     </div>
-
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search" action="/search/" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="query" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">All Categories</button>
+                                <ul class="social_small"><br>
+                                    <li class="facebook first"><a href="{{setting.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{setting.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,23 +47,7 @@
                     <li><a href="/">HOME </a></li>
                     <li class="active"> / {{ categorydata.title }}</li>
                 </ul>
-                <div class="span3">
-                    <ul class="nav nav-list ">
-                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</a> </li>
-                        {% load mptt_tags %}
-                        {% recursetree category %}
-                            <li class="dropdown">
-                                <a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
-                                {% if not node.is_leaf_node %}
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">{{ children }}</a></li>
-                                    </ul>
-                                {% endif %}
-                            </li>
-                        {% endrecursetree %}
-                    </ul>
-                </div>
-                <div class="span9">
+                <div class="span12">
                     {% for rs in events %}
                         <!-- start article 1 -->
                         <article class="blog-post">
@@ -56,17 +55,22 @@
                                 <h4>{{ rs.title }}</h4>
                             </div>
                             <div class="row">
-                                <div class="span3">
+                                <div class="span4">
                                     <a href="#"><img src="{{ rs.image.url }}" alt=""></a>
                                 </div>
-                                <div class="span6">
+                                <div class="span8">
                                     <div class="clearfix"></div>
                                     <p>
                                         {{ rs.detail|safe }}
 
-                                        <span class="comment"><a href="/event/{{ rs.id }}/{{ rs.slug }}" rel="tooltip" data-placement="top" >Daha Fazlası</a></span>
+                                        <span class="comment"><a href="/event/{{ rs.id }}/{{ rs.slug }}" rel="tooltip" data-placement="top" ></a></span>
                                     </p>
-                                    </div>
+                                    <ul class="post-meta">
+                                        <li class="first"><i class="icon-user"></i> <span>{{ rs.user.first_name }}</span></li>
+                                        <li class="last"><i class="icon-tags"></i> <span><a href="/event/{{ rs.id }}/{{ rs.slug }}">Daha Fazlası</a></span></li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </article>
                         <!-- end article 1 -->

@@ -39,6 +39,8 @@ urlpatterns = [
     path('event/<int:id>/<slug:slug>/', views.event_detail, name='event_detail'),
     path('content/<int:id>/<slug:slug>/', views.contentdetail, name='contentdetail'),
     path('menu/<int:id>', views.menu, name='menu'),
+    path('category/<int:id>', views.category, name='category'),
+    path('announcments/<int:id>/<slug:slug>/', views.announcment_content, name='announcment_content'),
 
     path('search/', views.event_search, name='event_search'),
     path('logout/', views.logout_view, name='logout_view'),

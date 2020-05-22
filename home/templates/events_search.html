@@ -38,9 +38,9 @@
                                 <th>Category</th>
                                 <th>Detail</th>
                             </tr>
-                            {% for rs in content %}
+                            {% for rs in event %}
                                 <tr>
-                                    <td><a href="/content/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="max-height: 50%;"> </a></td>
+                                    <td><a href="/event/{{ rs.id }}/{{ rs.slug }}"><img src="{{ rs.image.url }}" style="max-height: 50%;"> </a></td>
                                     <td><h6 class="event-name"><a href="/event/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h6></td>
                                     <td><a href="/category/{{ rs.category.id }}/{{ rs.category.slug }}">{{ rs.category }}</a></td>
                                     <td>{{ rs.detail |safe }}</td>

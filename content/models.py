@@ -36,9 +36,6 @@ class Menu(MPTTModel):
 
 TYPE = (
     ('menu', 'menu'),
-    ('haber', 'haber'),
-    ('duyuru', 'duyuru'),
-    ('etkinlik', 'etkinlik'),
 )
 STATUS =(
      ('True', 'Evet'),
@@ -67,7 +64,7 @@ class Content(models.Model):
     image_tag.short_description = 'Image'
 
     def get_absolute_url(self):
-        return reverse('category_detail',kwargs={'slug':self.slug})
+        return reverse('category_detail',kwargs={'slug': self.slug})
 
 
 class ContentForm(ModelForm):

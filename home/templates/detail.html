@@ -1,0 +1,85 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ setting.title}} {% endblock %}
+{% block keywords %} {{ setting.keywords}} {% endblock %}
+{% block description %} {{ setting.description}} {% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{setting.icon.url}}' />
+{% endblock %}
+
+
+{% block body %}
+
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>{{setting.title}}</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li><a href="/">HOME </a></li>
+                    <li class="active"> /</li>
+                </ul>
+                <div class="span3">
+                    <ul class="nav nav-list ">
+                        <li><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENU</a> </li>
+                        {% if menu %}
+                            {% load mptt_tags %}
+                            {% recursetree menu %}
+                                <li class="dropdown">
+                                    {% if  node.is_leaf_node %}
+                                        <a href="/category/{{ node.id }}">{{ node.title }}</a>
+                                    {% endif %}
+                                    {% if not node.is_leaf_node %}
+                                        <li class="dropdown info">
+                                            <a href="/category/{{ node.id }}"><i class="icon-home icon-white"></i> {{ node.title }}</a>
+                                            <ul class="dropdown-menu sub-menu">{{ children }}</ul>
+                                        </li>
+                                    {% endif %}
+                                </li>
+                            {% endrecursetree %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="span9">
+                    {% for rs in content %}
+                        <!-- start article 1 -->
+                        <article class="blog-post">
+                            <div class="tooltip-demo headline">
+                                <h4>{{ rs.title }}</h4>
+                            </div>
+                            <div class="row">
+                                <div class="span3">
+                                    <a href="#"><img src="{{ rs.image.url }}" alt=""></a>
+                                </div>
+                                <div class="span6">
+                                    <div class="clearfix"></div>
+                                    <p>
+                                        {{ rs.detail|safe }}
+
+                                        <span class="comment"><a href="/announcments/{{ rs.id }}/{{ rs.slug }}" rel="tooltip" data-placement="top" >Daha Fazlası</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- end article 1 -->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
